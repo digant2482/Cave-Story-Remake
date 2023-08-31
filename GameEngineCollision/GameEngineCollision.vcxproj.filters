@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\Main">
+      <UniqueIdentifier>{962dcccb-2990-4c55-8349-06d459f265d8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Player">
+      <UniqueIdentifier>{b5356553-0bc0-4213-96d9-07b33a1b13bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Tilemap">
+      <UniqueIdentifier>{22bdba5a-016e-4e94-b313-b244c943ffff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Game">
+      <UniqueIdentifier>{affe3ec4-dc1e-492e-b8f2-0abb588f202e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Header">
+      <UniqueIdentifier>{243eeea0-3ac4-4a6f-847d-bb3d37428a60}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Enemies">
+      <UniqueIdentifier>{5d57da6f-9be3-4893-96e2-38cb1d809e4a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Enemies\Bat">
+      <UniqueIdentifier>{bdab0c12-aedb-45d4-905b-f42e865778bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Enemies\Critter">
+      <UniqueIdentifier>{076fed2c-e3e2-4be5-849d-6f20b4856590}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Player\Animation">
+      <UniqueIdentifier>{1de564c3-3e31-4f3f-84dc-eedb4997b6eb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Enemies\Critter\Animation">
+      <UniqueIdentifier>{4b7a9146-87cd-429b-9950-14548b768137}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\HUD">
+      <UniqueIdentifier>{47c74bb4-9286-472d-b62a-8f2f2c968b14}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Weapons">
+      <UniqueIdentifier>{ac4c80cc-b28f-4776-89b3-f94b155aeb1d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\WallCollision">
+      <UniqueIdentifier>{ca9e0a4f-40fe-4b60-9276-76e106922a73}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Game.cpp">
+      <Filter>Source Files\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="Tilemap.cpp">
+      <Filter>Source Files\Tilemap</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source Files\Header</Filter>
+    </ClCompile>
+    <ClCompile Include="Bat.cpp">
+      <Filter>Source Files\Enemies\Bat</Filter>
+    </ClCompile>
+    <ClCompile Include="Critter.cpp">
+      <Filter>Source Files\Enemies\Critter</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerAnimation.cpp">
+      <Filter>Source Files\Player\Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Source Files\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="CritterAnimation.cpp">
+      <Filter>Source Files\Enemies\Critter\Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD.cpp">
+      <Filter>Source Files\HUD</Filter>
+    </ClCompile>
+    <ClCompile Include="Gun.cpp">
+      <Filter>Source Files\Weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="WallCollision.cpp">
+      <Filter>Source Files\WallCollision</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Game.h">
+      <Filter>Source Files\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Source Files\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Tilemap.h">
+      <Filter>Source Files\Tilemap</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Source Files\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Bat.h">
+      <Filter>Source Files\Enemies\Bat</Filter>
+    </ClInclude>
+    <ClInclude Include="Critter.h">
+      <Filter>Source Files\Enemies\Critter</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerAnimation.h">
+      <Filter>Source Files\Player\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="CritterAnimation.h">
+      <Filter>Source Files\Enemies\Critter\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD.h">
+      <Filter>Source Files\HUD</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet.h">
+      <Filter>Source Files\Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="Gun.h">
+      <Filter>Source Files\Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="WallCollision.h">
+      <Filter>Source Files\WallCollision</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
