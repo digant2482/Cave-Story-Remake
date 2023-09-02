@@ -1,11 +1,13 @@
+C:\Dev\GameEngineCollision\GameEngineCollision\AnimatedTiles.cpp;C:\Dev\GameEngineCollision\GameEngineCollision\Release\AnimatedTiles.obj
 C:\Dev\GameEngineCollision\GameEngineCollision\Bat.cpp;C:\Dev\GameEngineCollision\GameEngineCollision\Release\Bat.obj
 C:\Dev\GameEngineCollision\GameEngineCollision\Critter.cpp;C:\Dev\GameEngineCollision\GameEngineCollision\Release\Critter.obj
 C:\Dev\GameEngineCollision\GameEngineCollision\CritterAnimation.cpp;C:\Dev\GameEngineCollision\GameEngineCollision\Release\CritterAnimation.obj
-C:\Dev\GameEngineCollision\GameEngineCollision\CritterWallCollision.cpp;C:\Dev\GameEngineCollision\GameEngineCollision\Release\CritterWallCollision.obj
 C:\Dev\GameEngineCollision\GameEngineCollision\Game.cpp;C:\Dev\GameEngineCollision\GameEngineCollision\Release\Game.obj
+C:\Dev\GameEngineCollision\GameEngineCollision\Gun.cpp;C:\Dev\GameEngineCollision\GameEngineCollision\Release\Gun.obj
+C:\Dev\GameEngineCollision\GameEngineCollision\HUD.cpp;C:\Dev\GameEngineCollision\GameEngineCollision\Release\HUD.obj
 C:\Dev\GameEngineCollision\GameEngineCollision\main.cpp;C:\Dev\GameEngineCollision\GameEngineCollision\Release\main.obj
 C:\Dev\GameEngineCollision\GameEngineCollision\Player.cpp;C:\Dev\GameEngineCollision\GameEngineCollision\Release\Player.obj
 C:\Dev\GameEngineCollision\GameEngineCollision\PlayerAnimation.cpp;C:\Dev\GameEngineCollision\GameEngineCollision\Release\PlayerAnimation.obj
 C:\Dev\GameEngineCollision\GameEngineCollision\stdafx.cpp;C:\Dev\GameEngineCollision\GameEngineCollision\Release\stdafx.obj
 C:\Dev\GameEngineCollision\GameEngineCollision\Tilemap.cpp;C:\Dev\GameEngineCollision\GameEngineCollision\Release\Tilemap.obj
-C:\Dev\GameEngineCollision\GameEngineCollision\PlayerWallCollision.cpp;C:\Dev\GameEngineCollision\GameEngineCollision\Release\PlayerWallCollision.obj
+C:\Dev\GameEngineCollision\GameEngineCollision\WallCollision.cpp;C:\Dev\GameEngineCollision\GameEngineCollision\Release\WallCollision.obj

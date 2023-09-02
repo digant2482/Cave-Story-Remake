@@ -9,6 +9,11 @@ void Critter::initHitbox()
 	m_hitbox.height = 32.f;
 }
 
+void Critter::initHealth()
+{
+	m_currentHealth = 2;
+}
+
 void Critter::initOrientation()
 {
 	m_facingRight = false;
@@ -22,6 +27,7 @@ void Critter::initPhysics()
 Critter::Critter()
 {
 	initHitbox();
+	initHealth();
 	initOrientation();
 	initPhysics();
 }
@@ -30,6 +36,13 @@ void Critter::setPosition(const int x, const int y)
 {
 	m_hitbox.left = x;
 	m_hitbox.top  = y;
+}
+
+const int& Critter::updateHealth(const int healthPoints)
+{
+	//Updates health and returns new health points
+	m_currentHealth += healthPoints;
+	return m_currentHealth;
 }
 
 //Functions
@@ -243,6 +256,12 @@ void Critter::unlockJump()
 
 		m_lockjump = false;
 		m_jumping = false;
+}
+
+//Accessors
+const sf::FloatRect& Critter::getBounds() const
+{
+	return m_hitbox;
 }
 
 void Critter::update(Player& player)

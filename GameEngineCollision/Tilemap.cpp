@@ -4,6 +4,11 @@
 // Define the static member variable
 std::vector<std::vector<Tile>> Tilemap::m_levelMap;
 
+//Animated tiles FloatRect wrt to window
+const sf::FloatRect Tilemap::healthFillUpStationTile = sf::FloatRect(560.f, 280.f, 40.f, 40.f);
+const sf::FloatRect Tilemap::increaseMaxHealthTile   = sf::FloatRect(440.f, 120.f, 40.f, 40.f);
+const sf::FloatRect Tilemap::saveDiskTile            = sf::FloatRect(600.f, 280.f, 40.f, 40.f);
+
 void Tilemap::initBackground()
 {
 	//Use case : Render the background on window
@@ -46,7 +51,7 @@ TileType Tilemap::map(int x, int y)
 	return m_levelMap[y][x].tileType;
 }
 
-void Tilemap::render(sf::RenderTarget* target)
+void Tilemap::render(sf::RenderTarget* target, Player& player)
 {
 	sf::CircleShape cir;
 	cir.setRadius(2.f);
@@ -60,4 +65,5 @@ void Tilemap::render(sf::RenderTarget* target)
 			target->draw(cir);
 		}
 	}
+	renderAnimatedTiles(target, player);
 }

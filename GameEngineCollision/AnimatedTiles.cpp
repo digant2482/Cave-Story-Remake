@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "AnimatedTiles.h"
+#define MAXLEVEL1HEALTH 6
 
 void AnimatedTiles::initSprite()
 {
@@ -48,7 +49,7 @@ void AnimatedTiles::updateAnimatedTiles()
 	}
 }
 
-void AnimatedTiles::renderAnimatedTiles(sf::RenderTarget* target)
+void AnimatedTiles::renderAnimatedTiles(sf::RenderTarget* target, Player& player)
 {
 	//Update the animation before renderings
 	updateAnimatedTiles();
@@ -64,9 +65,13 @@ void AnimatedTiles::renderAnimatedTiles(sf::RenderTarget* target)
 	target->draw(m_animatedTilesSpriteSheet);
 
 	//Animate Increase Max health
-	m_animatedTilesSpriteSheet.setPosition(m_increaseMaxHealthPosition);
-	m_animatedTilesSpriteSheet.setTextureRect(m_increaseMaxHealth);
-	target->draw(m_animatedTilesSpriteSheet);
+	if (MAXLEVEL1HEALTH != player.getHealth().second)
+	{
+
+		m_animatedTilesSpriteSheet.setPosition(m_increaseMaxHealthPosition);
+		m_animatedTilesSpriteSheet.setTextureRect(m_increaseMaxHealth);
+		target->draw(m_animatedTilesSpriteSheet);
+	}
 }
 
 //Accessors

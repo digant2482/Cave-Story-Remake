@@ -1,4 +1,5 @@
 #pragma once
+#include "Player.h"
 class AnimatedTiles
 {
 private:
@@ -24,7 +25,7 @@ protected:
 
 	//Functions
 	void updateAnimatedTiles();
-	void renderAnimatedTiles(sf::RenderTarget* target);
+	void renderAnimatedTiles(sf::RenderTarget* target, Player& player);
 
 public:
 	//Accessors

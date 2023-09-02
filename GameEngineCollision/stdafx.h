@@ -8,5 +8,6 @@
 #include <vector>
 #include <unordered_map>
 #include <ctime>
+#include <memory>
 #include "Tilemap.h"
 #define TILESIZE 40

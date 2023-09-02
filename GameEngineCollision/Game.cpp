@@ -12,13 +12,15 @@ void Game::initWindow()
 void Game::initPlayer()
 {
 	m_player.setPosition(500, 270);
-	m_playerHasGun = false;
+	m_playerHasGun = true;
 }
 
 void Game::initEnemies()
 {
-	m_bat.setPosition(360, 280);
-	m_critter.setPosition(400, 400);
+	m_batArray.emplace_back(std::make_unique<Bat>());
+	m_batArray[0]->setPosition(360, 280);
+	m_critterArray.emplace_back(std::make_unique<Critter>());
+	m_critterArray[0]->setPosition(400, 400);
 }
 
 //Constructor / Destructor
@@ -66,12 +68,14 @@ void Game::gameUpdate()
 	/* Utility : updates all the parts of game */
 	m_player.update();
 
-	m_bat.update(m_player);
+	for (auto& bat : m_batArray)
+		bat->update(m_player);
 
-	m_critter.update(m_player);
+	for (auto& critter : m_critterArray)
+		critter->update(m_player);
 
 	if (m_playerHasGun)
-		m_gun.update(m_player);
+		m_gun.update(m_player, m_batArray, m_critterArray);
 
 	m_hud.update(m_player);
 }
@@ -84,16 +88,18 @@ void Game::gameRender()
 	*/
 	m_window->clear();
 
-	m_tilemap.render(m_window);
+	m_tilemap.render(m_window, m_player);
 
 	if (m_playerHasGun)
 		m_gun.render(m_window);
 
 	m_player.render(m_window);
 
-	m_bat.render(m_window);
+	for (auto& bat : m_batArray)
+		bat->render(m_window);
 
-	m_critter.render(m_window);
+	for (auto& critter : m_critterArray)
+		critter->render(m_window);
 
 	m_hud.render(m_window);
 

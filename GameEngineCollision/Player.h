@@ -42,6 +42,7 @@ private:
 	void updateMapCollision();									//Checks collison of player with the map
 	void updateMovement();										//Take inputs from keyboard
 	void updatePhysics();
+	void updateMiscellaneousItems();
 
 public:
 	Player();

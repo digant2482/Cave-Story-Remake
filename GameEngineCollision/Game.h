@@ -27,8 +27,8 @@ private:
 	Gun m_gun;
 
 	//Enemies
-	Bat m_bat;
-	Critter m_critter;
+	std::vector<std::unique_ptr<Bat>> m_batArray;
+	std::vector<std::unique_ptr<Critter>> m_critterArray;
 
 	//Initializers
 	void initWindow();

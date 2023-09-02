@@ -66,19 +66,7 @@ void CritterAnimation::updateCritterAnimation(bool& facingRight)
 
 void CritterAnimation::renderCritterAnimation(sf::RenderTarget* target, const sf::FloatRect& critterHitbox)
 {
-	/*sf::RectangleShape rect;
-	rect.setPosition(critterHitbox.left + 6.f, critterHitbox.top);
-	rect.setSize(sf::Vector2f(critterHitbox.width, critterHitbox.height));
-	rect.setFillColor(sf::Color::Transparent);
-	rect.setOutlineColor(sf::Color::Red);
-	rect.setOutlineThickness(2.f);*/
 	m_sprite.setPosition(critterHitbox.left + 6.f, critterHitbox.top);
 	m_sprite.setTextureRect(m_currentFrame);
-	/*sf::Sprite sprite;
-	sprite.setTexture(m_textureSheet);
-	sprite.setTextureRect(sf::IntRect(319, 191, 16, 16));
-	sprite.setScale(2.f, 2.f);
-	target->draw(sprite);*/
 	target->draw(m_sprite);
-	//target->draw(rect);
 }

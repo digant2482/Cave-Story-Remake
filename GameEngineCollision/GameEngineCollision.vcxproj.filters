@@ -52,6 +52,9 @@
     <Filter Include="Source Files\WallCollision">
       <UniqueIdentifier>{ca9e0a4f-40fe-4b60-9276-76e106922a73}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Tilemap\AnimatedTiles">
+      <UniqueIdentifier>{6054e677-fe19-4d71-b6d9-9a6d54940eb8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game.cpp">
@@ -90,6 +93,9 @@
     <ClCompile Include="WallCollision.cpp">
       <Filter>Source Files\WallCollision</Filter>
     </ClCompile>
+    <ClCompile Include="AnimatedTiles.cpp">
+      <Filter>Source Files\Tilemap\AnimatedTiles</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -127,6 +133,9 @@
     </ClInclude>
     <ClInclude Include="WallCollision.h">
       <Filter>Source Files\WallCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimatedTiles.h">
+      <Filter>Source Files\Tilemap\AnimatedTiles</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

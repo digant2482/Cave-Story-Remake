@@ -91,6 +91,12 @@ void Bat::updateAnimation()
 	}
 }
 
+//Accessors
+const sf::FloatRect& Bat::getBounds() const
+{
+	return m_sprite.getGlobalBounds();
+}
+
 void Bat::update(Player& player)
 {
 	updateOrientation(player);

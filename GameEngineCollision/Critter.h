@@ -8,6 +8,9 @@ class Critter : public CritterAnimation, public WallCollision
 private:
 	sf::FloatRect m_hitbox;
 
+	//Health
+	int m_currentHealth;
+
 	//Animation
 	sf::IntRect m_currentFrame;
 	sf::Clock m_animationTimer;
@@ -28,6 +31,7 @@ private:
 
 	//Initializers
 	void initHitbox();
+	void initHealth();
 	void initOrientation();
 	void initPhysics();
 
@@ -44,6 +48,10 @@ public:
 
 	//Modifiers
 	void setPosition(const int x, const int y);
+	const int& updateHealth(const int healthPoints);
+
+	//Accessors
+	const sf::FloatRect& getBounds() const;
 
 	void update(Player& player);
 	void render(sf::RenderTarget* target);

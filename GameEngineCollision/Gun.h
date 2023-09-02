@@ -1,6 +1,8 @@
 #pragma once
 #include "Bullet.h"
 #include "Player.h"
+#include "Bat.h"
+#include "Critter.h"
 
 class Gun
 {
@@ -34,7 +36,6 @@ private:
 	sf::IntRect m_level2Rect;
 	sf::IntRect m_level3Rect;
 
-
 	//Initializers
 	void initSprite();
 	void initGunLevel();
@@ -42,19 +43,21 @@ private:
 	void initLevelTextureRect();
 
 	//Functions
-	bool bulletWallCollision(const sf::FloatRect& hitbox, int x, int y);
+	bool bulletWallCollision(const sf::FloatRect& bulletBounds, int x, int y);
+	bool bulletBatCollision(const sf::FloatRect& bulletBounds, std::vector<std::unique_ptr<Bat>>& batArray);
+	bool bulletCritterCollision(const sf::FloatRect& bulletBounds, std::vector<std::unique_ptr<Critter>>& critterArray);
+
 	void updateGunLevelPoints();
 	void updateGunPosition(Player& player);
 	void updateFire(Player& player);
 	void updateFiringKey();
-	void updateBulletPosition();
+	void updateBulletPositionAndCollision(std::vector<std::unique_ptr<Bat>>& batArray, std::vector<std::unique_ptr<Critter>>& critterArray);
 
 	void renderGun(sf::RenderTarget* target);
 	void renderBullets(sf::RenderTarget* target);
-
 public:
 	Gun();
 
-	void update(Player& player);
+	void update(Player& player, std::vector<std::unique_ptr<Bat>>& batArray, std::vector<std::unique_ptr<Critter>>& critterArray);
 	void render(sf::RenderTarget* target);
 };

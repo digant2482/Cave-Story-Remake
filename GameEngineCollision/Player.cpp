@@ -1,6 +1,5 @@
 #include "stdafx.h"
 #include "Player.h"
-#include "Tilemap.h"
 
 //Initializers
 void Player::initHitbox()
@@ -293,6 +292,38 @@ void Player::updatePhysics()
 		m_velocity.y = 0;*/
 }
 
+void Player::updateMiscellaneousItems()
+{
+	if (Tilemap::healthFillUpStationTile.intersects(m_hitbox))
+	{
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+		{
+			m_currentHealth = m_maxHealth;
+		}
+	}
+
+	if (Tilemap::increaseMaxHealthTile.intersects(m_hitbox))
+	{
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+		{
+			if (m_maxHealth < 6)
+			{
+				m_maxHealth += 3;
+				m_currentHealth += 3;
+
+			}
+		}
+	}
+
+	if (Tilemap::saveDiskTile.intersects(m_hitbox))
+	{
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+		{
+			//Add saving logic here 
+		}
+	}	
+}
+
 //Public Functions
 void Player::update()
 {
@@ -301,10 +332,16 @@ void Player::update()
 	updateRevivalState();
 	updatePlayerAnimation();
 	updatePhysics();
+	updateMiscellaneousItems();
 }
 
 void Player::render(sf::RenderTarget* target)
 {
 	// Renders Player
 	renderPlayerAnimation(target, m_hitbox);
+	/*sf::CircleShape cir;
+	cir.setRadius(2.f);
+	cir.setFillColor(sf::Color::Blue);
+	cir.setPosition(560, 280);
+	target->draw(cir);*/
 }

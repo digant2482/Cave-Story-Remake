@@ -1,7 +1,7 @@
 struct BulletLev1
 {
 	sf::FloatRect bulletBounds;
-	int range = 50;
+	int range = 70;
 	int distanceTravelled = 0;
 	int fireDirection;
 	BulletLev1(const float x, const float y, const int fireDirection) : fireDirection(fireDirection)
@@ -16,7 +16,7 @@ struct BulletLev1
 struct BulletLev2
 {
 	sf::FloatRect bulletBounds;
-	int range = 70;
+	int range = 90;
 	int distanceTravelled = 0;
 	int fireDirection;
 	BulletLev2(const float x, const float y, const int fireDirection) : fireDirection(fireDirection)
@@ -32,7 +32,7 @@ struct BulletLev2
 struct BulletLev3
 {
 	sf::FloatRect bulletBounds;
-	int range = 100;
+	int range = 120;
 	int distanceTravelled = 0;
 	int fireDirection;
 	BulletLev3(const float x, const float y, const int fireDirection) : fireDirection(fireDirection)

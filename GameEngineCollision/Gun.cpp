@@ -74,7 +74,7 @@ void Gun::updateGunLevelPoints()
 void Gun::updateGunPosition(Player& player)
 {
 	//Sets gun's position according to player's position
-	m_gunSpriteSheet.setPosition(static_cast<sf::Vector2f>(player.getPosition()));
+	m_gunSpriteSheet.setPosition(player.getPosition().x, player.getPosition().y);
 	if (player.isFacingRight())
 	{
 		m_gunSpriteSheet.setTextureRect(m_gunRight);
@@ -125,11 +125,12 @@ void Gun::updateFire(Player& player)
 	}
 }
 
-bool Gun::bulletWallCollision(const sf::FloatRect& hitbox, int x, int y)
+//Bullet Collisions
+bool Gun::bulletWallCollision(const sf::FloatRect& bulletBounds, int x, int y)
 {
 	//Find y co-ordinate of colliding tile (in pixels)
 	int tileYpixels = y - (y % TILESIZE);
-	int testEnd = y + hitbox.height;
+	int testEnd = y + bulletBounds.height;
 
 	int tileCoordX = x / TILESIZE;
 
@@ -146,11 +147,45 @@ bool Gun::bulletWallCollision(const sf::FloatRect& hitbox, int x, int y)
 
 	return false;
 }
-void Gun::updateBulletPosition()
+
+bool Gun::bulletBatCollision(const sf::FloatRect& bulletBounds, std::vector<std::unique_ptr<Bat>>& batArray)
+{
+	for (int j = 0; j < batArray.size(); j++)
+	{
+		//If player hit the enemy, delete the bullet as well as enemy
+		if (bulletBounds.intersects(batArray[j]->getBounds()))
+		{
+			batArray.erase(batArray.begin() + j);
+			return true;
+		}
+	}
+	//Return false if no intersection found
+	return false;
+}
+bool Gun::bulletCritterCollision(const sf::FloatRect& bulletBounds, std::vector<std::unique_ptr<Critter>>& critterArray)
+{
+	//Check if the player hit any critter
+	for (int j = 0; j < critterArray.size(); j++)
+	{
+		//If player hit the enemy, delete the bullet as well as enemy
+		if (bulletBounds.intersects(critterArray[j]->getBounds()))
+		{
+			//If critter's health is zero, delete critter
+			if (!critterArray[j]->updateHealth(-1))
+				critterArray.erase(critterArray.begin() + j);
+			return true;
+		}
+	}
+	//Return false if no intersection is found
+	return false;
+}
+void Gun::updateBulletPositionAndCollision(std::vector<std::unique_ptr<Bat>>& batArray, std::vector<std::unique_ptr<Critter>>& critterArray)
 {
 	/*
 	- Updates bullet position
 	- Deletes bullet out of range
+	- Deletes bullet colliding with wall
+	- Deletes bullet that hit the enemy, also deletes the enemy
 	*/
 
 	if (m_gunLevel == 1)
@@ -166,9 +201,21 @@ void Gun::updateBulletPosition()
 
 			sf::FloatRect& bulletBounds = bullet.bulletBounds;
 			if (std::abs(bullet.distanceTravelled) > bullet.range) //Bullet out of range
+			{
 				m_bulletsLev1.erase(m_bulletsLev1.begin() + i);
+			}
 			else if (bulletWallCollision(bulletBounds, bulletBounds.left + bulletBounds.width, bulletBounds.top)) //Bullet collision with wall
+			{
 				m_bulletsLev1.erase(m_bulletsLev1.begin() + i);
+			}
+			else if (bulletBatCollision(bulletBounds, batArray)) //If bats are present
+			{
+				m_bulletsLev1.erase(m_bulletsLev1.begin() + i);
+			}
+			else if (bulletCritterCollision(bulletBounds, critterArray)) //If bats are present
+			{
+				m_bulletsLev1.erase(m_bulletsLev1.begin() + i);
+			}
 			else
 				i++;
 		}
@@ -186,9 +233,21 @@ void Gun::updateBulletPosition()
 
 			sf::FloatRect& bulletBounds = bullet.bulletBounds;
 			if (std::abs(bullet.distanceTravelled) > bullet.range) //Bullet out of range
+			{
 				m_bulletsLev2.erase(m_bulletsLev2.begin() + i);
+			}
 			else if (bulletWallCollision(bulletBounds, bulletBounds.left + bulletBounds.width, bulletBounds.top)) //Bullet collision with wall
+			{
 				m_bulletsLev2.erase(m_bulletsLev2.begin() + i);
+			}
+			else if (bulletBatCollision(bulletBounds, batArray)) //If bats are present
+			{
+				m_bulletsLev2.erase(m_bulletsLev2.begin() + i);
+			}
+			else if (bulletCritterCollision(bulletBounds, critterArray)) //If bats are present
+			{
+				m_bulletsLev2.erase(m_bulletsLev2.begin() + i);
+			}
 			else
 				i++;
 		}
@@ -206,9 +265,21 @@ void Gun::updateBulletPosition()
 
 			sf::FloatRect& bulletBounds = bullet.bulletBounds;
 			if (std::abs(bullet.distanceTravelled) > bullet.range) //Bullet out of range
+			{
 				m_bulletsLev3.erase(m_bulletsLev3.begin() + i);
+			}
 			else if (bulletWallCollision(bulletBounds, bulletBounds.left + bulletBounds.width, bulletBounds.top)) //Bullet collision with wall
+			{
 				m_bulletsLev3.erase(m_bulletsLev3.begin() + i);
+			}
+			else if (bulletBatCollision(bulletBounds, batArray)) //If bats are present
+			{
+				m_bulletsLev3.erase(m_bulletsLev3.begin() + i);
+			}
+			else if (bulletCritterCollision(bulletBounds, critterArray)) //If bats are present
+			{
+				m_bulletsLev3.erase(m_bulletsLev3.begin() + i);
+			}
 			else
 				i++;
 		}
@@ -222,12 +293,13 @@ void Gun::updateFiringKey()
 }
 
 
-void Gun::update(Player& player)
+void Gun::update(Player& player, std::vector<std::unique_ptr<Bat>>& batArray, 
+						std::vector<std::unique_ptr<Critter>>& critterArray)
 {
 	updateGunPosition(player);
 	updateFire(player);
 	updateFiringKey();
-	updateBulletPosition();
+	updateBulletPositionAndCollision(batArray, critterArray);
 }
 
 void Gun::renderGun(sf::RenderTarget* target)
