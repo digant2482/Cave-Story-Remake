@@ -36,7 +36,7 @@ public:
 	void setPosition(const float x, const float y);
 
 	//Accessors
-	const sf::FloatRect& getBounds() const;
+	const sf::FloatRect getBounds() const;
 
 	void update(Player& player);
 	void render(sf::RenderTarget* target);

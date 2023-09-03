@@ -13,7 +13,7 @@ void HUD::initVariables()
 {
 	//Height and width of current bar (health and gun level)
 	m_currentBarWidthMax = 78.f;
-	m_currentBarHeight   = 8.f;
+	m_currentBarHeight   = 10.f;
 }
 
 void HUD::initElements()
@@ -37,6 +37,17 @@ void HUD::initElements()
 	m_healthNumber.top = 56;
 	m_healthNumber.width = 8;
 	m_healthNumber.height = 8;
+
+	//Text LV
+	m_textLV.left = 80;
+	m_textLV.top = 80;
+	m_textLV.width = 12;
+	m_textLV.height = 8;
+
+	//Gun Level in number
+	m_gunLevelNumber.top = 56;
+	m_gunLevelNumber.width = 8;
+	m_gunLevelNumber.height = 8;
 }
 
 void HUD::initElementPositions()
@@ -49,6 +60,9 @@ void HUD::initElementPositions()
 	m_currentHealthBar.setPosition(sf::Vector2f(68.f, 38.f));
 
 	m_healthNumberPos = sf::Vector2f(50.f, 36.f);
+	m_gunLevelNumberPos = sf::Vector2f(50.f, 20.f);
+
+	m_textLVPos = sf::Vector2f(20.f, 20.f);
 }
 HUD::HUD()
 {
@@ -58,7 +72,7 @@ HUD::HUD()
 	initElementPositions();
 }
 
-void HUD::setCurrentBars(Player& player)
+void HUD::setCurrentBars(Player& player, Gun& gun)
 {
 	/*
 	- Updates current Health Bar
@@ -68,17 +82,25 @@ void HUD::setCurrentBars(Player& player)
 	float width = (static_cast<float>(currHealth) / maxHealth) * m_currentBarWidthMax;
 	m_currentHealthBar.setSize(sf::Vector2f(width, m_currentBarHeight));
 	m_currentHealth = currHealth;
+
+	auto [currGunLevelPoints, currGunLevel] = gun.getGunLevelInfo();
+	width = (static_cast<float>(currGunLevelPoints) / 5) * m_currentBarWidthMax;
+	m_currentGunLevelBar.setSize(sf::Vector2f(width, m_currentBarHeight));
+	m_currentGunLevel = currGunLevel;
 }
 
 void HUD::setText()
 {
 	//Sets x co-ordinate of health number graphic in spritesheet
 	m_healthNumber.left = m_currentHealth * 8;
+
+	//Sets x co-ordinate of gun level number graphic in spritesheet
+	m_gunLevelNumber.left = m_currentGunLevel * 8;
 }
 
-void HUD::update(Player& player)
+void HUD::update(Player& player, Gun& gun)
 {
-	setCurrentBars(player);
+	setCurrentBars(player, gun);
 	setText();
 }
 
@@ -87,6 +109,17 @@ void HUD::render(sf::RenderTarget* target)
 	//Draws gun level bar background
 	m_spriteSheet.setPosition(m_gunLevelBarBackgroundPos);
 	m_spriteSheet.setTextureRect(m_gunLevelBarBackground);
+	target->draw(m_spriteSheet);
+	target->draw(m_currentGunLevelBar);
+
+	//Draws Gun LV text
+	m_spriteSheet.setPosition(m_textLVPos);
+	m_spriteSheet.setTextureRect(m_textLV);
+	target->draw(m_spriteSheet);
+
+	//Draws Gun Level number
+	m_spriteSheet.setPosition(m_gunLevelNumberPos);
+	m_spriteSheet.setTextureRect(m_gunLevelNumber);
 	target->draw(m_spriteSheet);
 
 	//Draws health bar background and current health bar

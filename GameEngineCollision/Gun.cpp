@@ -27,7 +27,6 @@ void Gun::initVariables()
 {
 	m_bulletVelocity = 2.5f;
 	m_heldLSHIFT = false;
-	m_fireTimer.restart();
 }
 
 void Gun::initLevelTextureRect()
@@ -49,7 +48,7 @@ Gun::Gun()
 void Gun::updateGunLevelPoints()
 {
 	//Change gun level if points are greater than or equal to 15
-	if (m_gunLevelPoints >= 15)
+	if (m_gunLevelPoints >= 5)
 	{
 		if (m_gunLevel != 3)
 		{
@@ -100,7 +99,6 @@ void Gun::updateFire(Player& player)
 				m_bulletsLev1.emplace_back(BulletLev1(m_gunSpriteSheet.getPosition().x + 2.f,
 					m_gunSpriteSheet.getPosition().y, fireDirection));
 			}
-			m_fireTimer.restart();
 		}
 		else if (m_gunLevel == 2)
 		{
@@ -110,7 +108,6 @@ void Gun::updateFire(Player& player)
 				m_bulletsLev2.emplace_back(BulletLev2(m_gunSpriteSheet.getPosition().x + 2.f,
 					m_gunSpriteSheet.getPosition().y, fireDirection));
 			}
-			m_fireTimer.restart();
 		}
 		else
 		{
@@ -120,7 +117,6 @@ void Gun::updateFire(Player& player)
 				m_bulletsLev3.emplace_back(BulletLev3(m_gunSpriteSheet.getPosition().x + 2.f,
 					m_gunSpriteSheet.getPosition().y, fireDirection));
 			}
-			m_fireTimer.restart();
 		}
 	}
 }
@@ -155,6 +151,13 @@ bool Gun::bulletBatCollision(const sf::FloatRect& bulletBounds, std::vector<std:
 		//If player hit the enemy, delete the bullet as well as enemy
 		if (bulletBounds.intersects(batArray[j]->getBounds()))
 		{
+			//33% chance for health up reward and 67% chance for gun level points reward
+			int selector = rand() % 2;
+			if (selector == 2)
+				m_healthUpArray.emplace_back(HealthUp(batArray[j]->getBounds().getPosition()));
+			else
+				m_gunLevelPointsArray.emplace_back(GunLevelPoints(batArray[j]->getBounds().getPosition()));
+
 			batArray.erase(batArray.begin() + j);
 			return true;
 		}
@@ -172,7 +175,18 @@ bool Gun::bulletCritterCollision(const sf::FloatRect& bulletBounds, std::vector<
 		{
 			//If critter's health is zero, delete critter
 			if (!critterArray[j]->updateHealth(-1))
+			{
+				//33% chance for health up reward and 67% chance for gun level points reward
+				int selector = rand() % 2;
+				if (selector == 2)
+					m_healthUpArray.emplace_back(HealthUp(critterArray[j]->getBounds().getPosition()));
+				else
+				{
+					m_gunLevelPointsArray.emplace_back(GunLevelPoints(critterArray[j]->getBounds().getPosition()));
+					m_gunLevelPointsArray.emplace_back(GunLevelPoints(critterArray[j]->getBounds().getPosition()));
+				}
 				critterArray.erase(critterArray.begin() + j);
+			}
 			return true;
 		}
 	}
@@ -286,20 +300,52 @@ void Gun::updateBulletPositionAndCollision(std::vector<std::unique_ptr<Bat>>& ba
 	}
 }
 
+void Gun::updatePlayerRewards(Player& player)
+{
+	int i = 0;
+	while (i < m_healthUpArray.size())
+	{
+		if (m_healthUpArray[i].getBounds().intersects(player.getHitbox()))
+		{
+			player.updateHP(1);
+			m_healthUpArray.erase(m_healthUpArray.begin() + i);
+		}
+		else
+			i++;
+	}
+
+	i = 0;
+	while (i < m_gunLevelPointsArray.size())
+	{
+		if (m_gunLevelPointsArray[i].getBounds().intersects(player.getHitbox()))
+		{
+			m_gunLevelPoints += 1;
+			m_gunLevelPointsArray.erase(m_gunLevelPointsArray.begin() + i);
+		}
+		else
+			i++;
+	}
+}
+
 void Gun::updateFiringKey()
 {
 	if (!sf::Keyboard::isKeyPressed(sf::Keyboard::LShift))
 		m_heldLSHIFT = false;
 }
+//Accessors
+const std::pair<int, int> Gun::getGunLevelInfo() const
+{
+	return std::make_pair(m_gunLevelPoints, m_gunLevel);
+}
 
-
-void Gun::update(Player& player, std::vector<std::unique_ptr<Bat>>& batArray, 
+void Gun::update(Player& player, std::vector<std::unique_ptr<Bat>>& batArray,
 						std::vector<std::unique_ptr<Critter>>& critterArray)
 {
 	updateGunPosition(player);
 	updateFire(player);
 	updateFiringKey();
 	updateBulletPositionAndCollision(batArray, critterArray);
+	updatePlayerRewards(player);
 }
 
 void Gun::renderGun(sf::RenderTarget* target)
@@ -338,8 +384,21 @@ void Gun::renderBullets(sf::RenderTarget* target)
 	}
 }
 
+void Gun::renderRewards(sf::RenderTarget* target)
+{
+	for (auto& healthUp : m_healthUpArray)
+	{
+		healthUp.render(target);
+	}
+	for (auto& gunLevelPoints : m_gunLevelPointsArray)
+	{
+		gunLevelPoints.render(target);
+	}
+}
+
 void Gun::render(sf::RenderTarget* target)
 {
 	renderBullets(target);
 	renderGun(target);
+	renderRewards(target);
 }

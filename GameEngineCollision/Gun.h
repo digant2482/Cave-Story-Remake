@@ -3,6 +3,8 @@
 #include "Player.h"
 #include "Bat.h"
 #include "Critter.h"
+#include "GunLevelPoints.h"
+#include "HealthUp.h"
 
 class Gun
 {
@@ -28,8 +30,11 @@ private:
 	float m_bulletVelocity;
 
 	//Fire Variables
-	sf::Clock m_fireTimer;
 	bool m_heldLSHIFT;
+
+	//Enemy Kill Rewards
+	std::vector<HealthUp> m_healthUpArray;
+	std::vector<GunLevelPoints> m_gunLevelPointsArray;
 
 	//Level texture rect
 	sf::IntRect m_level1Rect;
@@ -52,12 +57,16 @@ private:
 	void updateFire(Player& player);
 	void updateFiringKey();
 	void updateBulletPositionAndCollision(std::vector<std::unique_ptr<Bat>>& batArray, std::vector<std::unique_ptr<Critter>>& critterArray);
+	void updatePlayerRewards(Player& player);
 
 	void renderGun(sf::RenderTarget* target);
 	void renderBullets(sf::RenderTarget* target);
+	void renderRewards(sf::RenderTarget* target);
 public:
 	Gun();
 
+	//Accessors
+	const std::pair<int, int> getGunLevelInfo() const;
 	void update(Player& player, std::vector<std::unique_ptr<Bat>>& batArray, std::vector<std::unique_ptr<Critter>>& critterArray);
 	void render(sf::RenderTarget* target);
 };

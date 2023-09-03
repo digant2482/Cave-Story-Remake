@@ -92,7 +92,7 @@ void Bat::updateAnimation()
 }
 
 //Accessors
-const sf::FloatRect& Bat::getBounds() const
+const sf::FloatRect Bat::getBounds() const
 {
 	return m_sprite.getGlobalBounds();
 }

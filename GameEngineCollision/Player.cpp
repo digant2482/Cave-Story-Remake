@@ -211,10 +211,6 @@ void Player::updateMapCollision()
 		{	//falling (in air)
 			m_hitbox.top += m_velocity.y;
 			m_velocity.y += m_gravity;
-
-			//if (m_velocity.y >= TILESIZE)		//if the speed is higher than this we might fall through a tile
-			//	m_velocity.y = TILESIZE;        //Since we are limiting the speed we don't need this
-
 			m_lockjump = true;			        //lock jump if falling
 		}
 	}
@@ -339,9 +335,4 @@ void Player::render(sf::RenderTarget* target)
 {
 	// Renders Player
 	renderPlayerAnimation(target, m_hitbox);
-	/*sf::CircleShape cir;
-	cir.setRadius(2.f);
-	cir.setFillColor(sf::Color::Blue);
-	cir.setPosition(560, 280);
-	target->draw(cir);*/
 }

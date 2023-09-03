@@ -77,7 +77,7 @@ void Game::gameUpdate()
 	if (m_playerHasGun)
 		m_gun.update(m_player, m_batArray, m_critterArray);
 
-	m_hud.update(m_player);
+	m_hud.update(m_player, m_gun);
 }
 
 void Game::gameRender()
