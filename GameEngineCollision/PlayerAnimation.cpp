@@ -4,19 +4,27 @@
 //Initializers
 void PlayerAnimation::initSprite()
 {
-	if (!m_textureSheet.loadFromFile("Textures/Player/Quote.png"))
+	/* Initializes player sprite */
+	if (!m_texture.loadFromFile("Textures/Player/Quote.png"))
 		std::cout << "ERROR::PLAYER::INITSPRITE::FAILED TO LOAD TEXTURE" << '\n';
-	m_sprite.setTexture(m_textureSheet);
+	m_spriteSheet.setTexture(m_texture);
 }
 
 void PlayerAnimation::initIntRect()
 {
+	/* Initializes texture rect (To be snipped from m_spriteSheet) */
 	m_runRight  = sf::IntRect(0, 32, 32, 32);
 	m_runLeft   = sf::IntRect(0, 0, 32, 32);
 }
 
 void PlayerAnimation::initVariables()
 {
+	/* Initializes :
+	* Player's moving state
+	* Player's facing direction (m_facingRight)
+	* Player's revival state
+	* Animation Timer 
+	*/
 	m_playerState = IDLE;
 	m_facingRight = true;
 	m_revivalState = false;
@@ -70,7 +78,7 @@ void PlayerAnimation::setRevivalState(const bool state)
 }
 
 //Accessors
-const bool& PlayerAnimation::isFacingRight()
+const bool& PlayerAnimation::isFacingRight() const
 {
 	return m_facingRight;
 }
@@ -126,16 +134,16 @@ void PlayerAnimation::updatePlayerAnimation()
 
 void PlayerAnimation::renderPlayerAnimation(sf::RenderTarget* target, sf::FloatRect& playerHitbox)
 {
-	m_sprite.setPosition(playerHitbox.left - 10, playerHitbox.top);
+	m_spriteSheet.setPosition(playerHitbox.left - 10, playerHitbox.top);
 	m_previousPlayerState = m_playerState;
-	m_sprite.setTextureRect(m_currentFrame);
+	m_spriteSheet.setTextureRect(m_currentFrame);
 
-	//2 types of rendering:
-	//a) The player is not hit (normal rendering)
-	//b) The player is hit (Jittery rendering)
+	/*Two types of rendering:
+	a) The player is not hit (Normal rendering)
+	b) The player is hit    (Jittery rendering)*/
 	if (!m_revivalState || (m_revivalState && m_revivalAnimationTimer.getElapsedTime().asSeconds() > 0.1f))
 	{
-		target->draw(m_sprite);
+		target->draw(m_spriteSheet);
 		m_revivalAnimationTimer.restart();
 	}
 }

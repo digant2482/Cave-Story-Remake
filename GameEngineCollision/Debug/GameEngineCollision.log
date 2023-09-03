@@ -1,2 +1,301 @@
-﻿  HUD.cpp
+﻿  stdafx.cpp
+  AnimatedTiles.cpp
+C:\Dev\GameEngineCollision\GameEngineCollision\AnimatedTiles.cpp(37,33): warning C4244: '+=': conversion from 'float' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+C:\Dev\GameEngineCollision\GameEngineCollision\AnimatedTiles.cpp(39,33): warning C4244: '=': conversion from 'float' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+C:\Dev\GameEngineCollision\GameEngineCollision\AnimatedTiles.cpp(41,22): warning C4244: '+=': conversion from 'float' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+C:\Dev\GameEngineCollision\GameEngineCollision\AnimatedTiles.cpp(43,22): warning C4244: '=': conversion from 'float' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+C:\Dev\GameEngineCollision\GameEngineCollision\AnimatedTiles.cpp(45,31): warning C4244: '+=': conversion from 'float' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+C:\Dev\GameEngineCollision\GameEngineCollision\AnimatedTiles.cpp(47,31): warning C4244: '=': conversion from 'float' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+  Bat.cpp
+C:\Dev\GameEngineCollision\GameEngineCollision\Bat.cpp(62,18): warning C4305: '+=': truncation from 'double' to 'float'
+  Critter.cpp
+C:\Dev\GameEngineCollision\GameEngineCollision\Critter.cpp(37,18): warning C4244: '=': conversion from 'const int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Dev\GameEngineCollision\GameEngineCollision\Critter.cpp(38,18): warning C4244: '=': conversion from 'const int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Dev\GameEngineCollision\GameEngineCollision\Critter.cpp(112,10): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Dev\GameEngineCollision\GameEngineCollision\Critter.cpp(115,50): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Dev\GameEngineCollision\GameEngineCollision\Critter.cpp(161,24): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Dev\GameEngineCollision\GameEngineCollision\Critter.cpp(170,42): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Dev\GameEngineCollision\GameEngineCollision\Critter.cpp(206,90): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Dev\GameEngineCollision\GameEngineCollision\Critter.cpp(206,66): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Dev\GameEngineCollision\GameEngineCollision\Critter.cpp(213,73): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Dev\GameEngineCollision\GameEngineCollision\Critter.cpp(213,49): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Dev\GameEngineCollision\GameEngineCollision\Critter.cpp(214,47): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Dev\GameEngineCollision\GameEngineCollision\Critter.cpp(222,67): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Dev\GameEngineCollision\GameEngineCollision\Critter.cpp(222,47): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Dev\GameEngineCollision\GameEngineCollision\Critter.cpp(224,46): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Dev\GameEngineCollision\GameEngineCollision\Critter.cpp(236,87): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Dev\GameEngineCollision\GameEngineCollision\Critter.cpp(236,49): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Dev\GameEngineCollision\GameEngineCollision\Critter.cpp(251,55): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Dev\GameEngineCollision\GameEngineCollision\Critter.cpp(252,49): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+  CritterAnimation.cpp
+  Game.cpp
+  Gun.cpp
+C:\Dev\GameEngineCollision\GameEngineCollision\Gun.cpp(129,14): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Dev\GameEngineCollision\GameEngineCollision\Gun.cpp(149,20): warning C4018: '<': signed/unsigned mismatch
+C:\Dev\GameEngineCollision\GameEngineCollision\Gun.cpp(171,20): warning C4018: '<': signed/unsigned mismatch
+C:\Dev\GameEngineCollision\GameEngineCollision\Gun.cpp(208,12): warning C4018: '<': signed/unsigned mismatch
+C:\Dev\GameEngineCollision\GameEngineCollision\Gun.cpp(214,32): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
+C:\Dev\GameEngineCollision\GameEngineCollision\Gun.cpp(221,99): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Dev\GameEngineCollision\GameEngineCollision\Gun.cpp(221,65): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Dev\GameEngineCollision\GameEngineCollision\Gun.cpp(240,12): warning C4018: '<': signed/unsigned mismatch
+C:\Dev\GameEngineCollision\GameEngineCollision\Gun.cpp(246,32): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
+C:\Dev\GameEngineCollision\GameEngineCollision\Gun.cpp(253,99): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Dev\GameEngineCollision\GameEngineCollision\Gun.cpp(253,65): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Dev\GameEngineCollision\GameEngineCollision\Gun.cpp(272,12): warning C4018: '<': signed/unsigned mismatch
+C:\Dev\GameEngineCollision\GameEngineCollision\Gun.cpp(278,32): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
+C:\Dev\GameEngineCollision\GameEngineCollision\Gun.cpp(285,99): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Dev\GameEngineCollision\GameEngineCollision\Gun.cpp(285,65): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Dev\GameEngineCollision\GameEngineCollision\Gun.cpp(306,11): warning C4018: '<': signed/unsigned mismatch
+C:\Dev\GameEngineCollision\GameEngineCollision\Gun.cpp(318,11): warning C4018: '<': signed/unsigned mismatch
+  GunLevelPoints.cpp
+  HUD.cpp
+  HealthUp.cpp
+  Player.cpp
+C:\Dev\GameEngineCollision\GameEngineCollision\Player.cpp(49,18): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Dev\GameEngineCollision\GameEngineCollision\Player.cpp(50,17): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Dev\GameEngineCollision\GameEngineCollision\Player.cpp(89,10): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Dev\GameEngineCollision\GameEngineCollision\Player.cpp(92,50): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Dev\GameEngineCollision\GameEngineCollision\Player.cpp(138,24): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Dev\GameEngineCollision\GameEngineCollision\Player.cpp(147,42): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Dev\GameEngineCollision\GameEngineCollision\Player.cpp(183,90): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Dev\GameEngineCollision\GameEngineCollision\Player.cpp(183,66): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Dev\GameEngineCollision\GameEngineCollision\Player.cpp(190,73): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Dev\GameEngineCollision\GameEngineCollision\Player.cpp(190,49): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Dev\GameEngineCollision\GameEngineCollision\Player.cpp(191,47): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Dev\GameEngineCollision\GameEngineCollision\Player.cpp(199,67): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Dev\GameEngineCollision\GameEngineCollision\Player.cpp(199,47): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Dev\GameEngineCollision\GameEngineCollision\Player.cpp(201,46): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Dev\GameEngineCollision\GameEngineCollision\Player.cpp(213,87): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Dev\GameEngineCollision\GameEngineCollision\Player.cpp(213,49): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Dev\GameEngineCollision\GameEngineCollision\Player.cpp(228,53): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Dev\GameEngineCollision\GameEngineCollision\Player.cpp(229,49): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+  PlayerAnimation.cpp
+  Tilemap.cpp
+C:\Dev\GameEngineCollision\GameEngineCollision\Tilemap.cpp(64,31): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Dev\GameEngineCollision\GameEngineCollision\Tilemap.cpp(64,23): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  WallCollision.cpp
+C:\Dev\GameEngineCollision\GameEngineCollision\WallCollision.cpp(16,14): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Dev\GameEngineCollision\GameEngineCollision\WallCollision.cpp(37,14): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Dev\GameEngineCollision\GameEngineCollision\WallCollision.cpp(58,14): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Dev\GameEngineCollision\GameEngineCollision\WallCollision.cpp(95,27): warning C4244: '+=': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Dev\GameEngineCollision\GameEngineCollision\WallCollision.cpp(104,27): warning C4244: '+=': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+  main.cpp
+  Generating Code...
+C:\Dev\GameEngineCollision\GameEngineCollision\Player.cpp(64): warning C4172: returning address of local variable or temporary
   GameEngineCollision.vcxproj -> C:\Dev\GameEngineCollision\Debug\GameEngineCollision.exe

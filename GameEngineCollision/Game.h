@@ -35,15 +35,14 @@ private:
 	void initPlayer();
 	void initEnemies();
 
+	//Updates Game
 	void windowPollEvents();
 
-	//Player/Wall Collision
 	void gameUpdate();
 	void gameRender();
 public:
 	Game();
 	~Game();
 
-	//Functions
 	void run();
 };

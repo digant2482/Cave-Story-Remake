@@ -102,72 +102,77 @@ void Critter::updatePlayerEnemyCollision(Player& player)
 
 void Critter::updateCritterWallCollision()
 {
-		//check for slopes (only if moving down) 
-	if (m_velocity.y > 0) 
+	//Check for slopes (only if moving down) 
+	if (m_velocity.y > 0)
 	{
-		int tsx, tsy;				//slope tile coordinates
+		int tsx, tsy;				//Slope tile coordinates
 
 		//Hitbox's bottom-horizontal side's middle point
-		//Case 1: Player Enter a slope
+		//Case 1: Critter enters a slope
 		int sx = m_hitbox.left + (m_hitbox.width / 2) + m_velocity.x;
-		
+
 		//Check collision of above mentioned point with the sloped tile (if present)
 		if (collisionSlope(m_hitbox, sx, (m_hitbox.top + m_hitbox.height), tsx, tsy))
 		{
-			m_hitbox.left += m_velocity.x;	
-			//y has been set by collisionSlope function
+			m_hitbox.left += m_velocity.x;
+			//Y has already been set by collisionSlope function
 
-			unlockJump();	//we hit the ground - the player may jump again
-			 
-			m_velocity.y = 1;		//test against the ground again in the next frame (We only check for slope if velocity.y is > 0)
+			unlockJump();			//Critter hits the ground therefore the critter may jump again
 
-			m_prevTileX = tsx;	//save slope coordinate
-			m_prevTileY = tsy;
+			m_velocity.y = 1;		//Test against the ground again in the next frame 
+			//(We only check for slope if velocity.y is > 0)
+			m_prevTileX = tsx;
+			m_prevTileY = tsy;		//Save tile coordinates
 
 			return;
 		}
-		else 
-		{	
-			//player is not on a slope in this frame, now check if we came from a slope
-			//-1 ... we are not on a slope
-			//0  ... we left a slope after moving down
-			//1  ... we left a slope after moving up
+		else
+		{
+			//Critter is not on a slope in this frame, now check if the critter came from a slope
+			//-1 ... Critter is not on a slope
+			//0  ... Critter left the slope after moving down
+			//1  ... Critter left the slope after moving up
 			int stateCode = -1;
 
 			if (Tilemap::map(m_prevTileX, m_prevTileY) == LEFTSLOPED)
 			{
 				if (m_velocity.x > 0)
-					stateCode = 0;  //moving down the slope
+					stateCode = 0;  //Moving down the slope
 				else
-					stateCode = 1;	//moving up the slope
+					stateCode = 1;	//Moving up the slope
 			}
 			else if (Tilemap::map(m_prevTileX, m_prevTileY) == RIGHTSLOPED)
 			{
-				if (m_velocity.x < 0)	
-					stateCode = 0;  //moving down the slope
+				if (m_velocity.x < 0)
+					stateCode = 0;  //Moving down the slope
 				else
-					stateCode = 1;	//moving up the slope
+					stateCode = 1;	//Moving up the slope
 			}
 
-			if (stateCode != -1) 
+			if (stateCode != -1)
 			{
-				//Case 2: Player left the slope
+				//Case 2: Critter left the slope
 				int sy;
 
-				if (stateCode == 1) 
+				if (stateCode == 1)
 				{
-					m_hitbox.top = tsy * TILESIZE - m_hitbox.height - 1;		//move y to the top of slope tile
+					//Move y to the top of slope tile
+					m_hitbox.top = tsy * TILESIZE - m_hitbox.height - 1;
 					sy = m_hitbox.top + m_hitbox.height;
 				}
-				else 
+				else
 				{
-					m_hitbox.top = (tsy + 1) * TILESIZE - m_hitbox.height - 1;	//move y to the bottom of the slope tile
-					sy = m_hitbox.top + m_hitbox.height + TILESIZE;			//test one tile lower than the bottom of the slope (to test if we move down a long slope)
-					//it's physically incorrect, but looks a lot smoother ingame
+					//Move y to the bottom of the slope tile
+					m_hitbox.top = (tsy + 1) * TILESIZE - m_hitbox.height - 1;
+
+					/*Test one tile lower than the bottom of the slope,
+					it's physically incorrect, but looks a lot smoother in game*/
+					sy = m_hitbox.top + m_hitbox.height + TILESIZE;
+
 				}
 
-				//Case 3: Player again landed on slope after he had left a slope
-				if (collisionSlope(m_hitbox, sx, sy, tsx, tsy)) 
+				//Case 3: Critter again landed on slope after leaving a slope
+				if (collisionSlope(m_hitbox, sx, sy, tsx, tsy))
 				{
 					m_hitbox.left += m_velocity.x;
 
@@ -185,77 +190,73 @@ void Critter::updateCritterWallCollision()
 	}
 
 
-	//No slope collisions detected -> check for normal tile collisions
-	
+	//No slope collisions detected hence check for normal tile collisions
+
 	/*
 	* The idea is to split our evaluation process to x-axis, y-axis
-	* We evaluate the collison on x-axis first, reset the position on x-axis if player collides with wall
-	* Then we do the same process but on y-axis 
+	* We evaluate the collison on x-axis first, reset the position on x-axis if critter collides with wall
+	* Then we do the same process on y-axis
 	*/
-	int tileCoord;
 
-	//x axis collision (--)
-	if (m_velocity.x > 0) 
-	{	//moving right
-		if (verticalCollision(m_hitbox, m_hitbox.left + m_hitbox.width + m_velocity.x, m_hitbox.top, tileCoord)) //collision on the right side
-			m_hitbox.left = tileCoord * TILESIZE - m_hitbox.width - 1;		//move to the edge of the tile (tile on the right - player width)
+	int tileCoord;   //Co-ordinate of colliding tile (could be x or y co-ordinate depending on axis)
+
+	//X axis collision (--)
+	if (m_velocity.x > 0)
+	{	//Moving right (Collision on the right side)
+		if (verticalCollision(m_hitbox, m_hitbox.left + m_hitbox.width + m_velocity.x, m_hitbox.top, tileCoord))
+			m_hitbox.left = tileCoord * TILESIZE - m_hitbox.width - 1;        //Move to the edge of the tile 
 		else
-			m_hitbox.left += m_velocity.x; //No collision
+			m_hitbox.left += m_velocity.x;									  //No collision
 	}
 	else if (m_velocity.x < 0)
-	{	//moving left
-		if (verticalCollision(m_hitbox, m_hitbox.left + m_velocity.x, m_hitbox.top, tileCoord))		//collision on the left side
-			m_hitbox.left = (tileCoord + 1) * TILESIZE + 1;									//move to the edge of the tile
+	{	//Moving left (Collision on the left side)
+		if (verticalCollision(m_hitbox, m_hitbox.left + m_velocity.x, m_hitbox.top, tileCoord))
+			m_hitbox.left = (tileCoord + 1) * TILESIZE + 1;					  //Move to the edge of the tile
 		else
-			m_hitbox.left += m_velocity.x;
+			m_hitbox.left += m_velocity.x;									  //No collision
 	}
-	
 
-	// y axis collision (|)
+	//Y axis collision (|)
 	if (m_velocity.y < 0)
-	{	//moving up
+	{	//Moving up
 		if (collisionHorizontalUp(m_hitbox, m_hitbox.left, m_hitbox.top + m_velocity.y, tileCoord))
 		{
-			m_hitbox.top = (tileCoord + 1) * TILESIZE + 1;
+			m_hitbox.top = (tileCoord + 1) * TILESIZE + 1;					  //Move to the edge of the tile
 			m_velocity.y = 0;
 		}
-		else 
+		else
 		{
-			m_hitbox.top += m_velocity.y;
+			m_hitbox.top += m_velocity.y;									  //No collision
 			m_velocity.y += m_gravity;
 		}
 	}
-	else 
-	{	
-		//moving down / on ground
+	else
+	{
+		//Moving down / On ground
 		if (collisionHorizontalDown(m_hitbox, m_hitbox.left, m_hitbox.top + m_hitbox.height + m_velocity.y, tileCoord))
-		{	//on ground
+		{	//On ground
 			m_hitbox.top = tileCoord * TILESIZE - m_hitbox.height - 1;
-			m_velocity.y = 1;				//1 so we test against the ground again in the next frame (0 would test against the ground in the next+1 frame)
-
+			m_velocity.y = 1;					//Velocity is set to 1, to test against the ground in the next frame 
+			//0 would test against the ground in next to next frame
 			unlockJump();
 		}
-		else 
-		{	//falling (in air)
-			m_hitbox.top += m_velocity.y;
+		else
+		{	//Falling (in air)
+			m_hitbox.top += m_velocity.y;									  //No collision
 			m_velocity.y += m_gravity;
-
-			m_lockjump = true;			        //lock jump if falling
+			m_lockjump = true;												  //Lock jump (since falling)
 		}
 	}
 
-	m_prevTileX = (m_hitbox.left + (m_hitbox.width/2)) / TILESIZE;
+	m_prevTileX = (m_hitbox.left + (m_hitbox.width / 2)) / TILESIZE;
 	m_prevTileY = (m_hitbox.top + m_hitbox.height) / TILESIZE;
 }
 
+
 void Critter::unlockJump()
 {
-	//the player may jump again:
-	//a) if he fell off an edge (!jumping) - without releasing the jump key on the ground
-	//b) if he jumped - only when he releases the jump key on the ground	
-
-		m_lockjump = false;
-		m_jumping = false;
+	m_lockjump = false;
+	m_jumping = false;
 }
 
 //Accessors

@@ -10,25 +10,24 @@ private:
 	sf::FloatRect m_hitbox;
 
 	//Health
-	int m_currentHealth;
-	int m_maxHealth;
+	int m_currentHealth;        //Player's health
+	int m_maxHealth;			//Player's max health
 
 	//Physics
-	sf::Vector2f m_velocity; //Player velocity
-	float m_velocityMaxX; //Terminal velocity in x direction
-	float m_velocityMaxY;
-	float m_velocityMin;  //Stops if velocity below this value
-	float m_acceleration; //Acceleration in x direction
-	float m_drag;		  //Deceleration in x direction
-	float m_gravity;	  //Gravity
+	sf::Vector2f m_velocity;    //Player velocity
+	float m_velocityMaxX;		//Terminal velocity in x direction
+	float m_velocityMaxY;		//Terminal velocity in y direction
+	float m_velocityMin;		//Player stops if velocity falls below this value
+	float m_acceleration;		//Acceleration in x direction
+	float m_drag;				//Deceleration in x direction
+	float m_gravity;			//Gravity
 
 	//Jump
-	bool m_lockjump;		//Denies the player to jump
-	bool m_jumping;			//Is player jumping ?
+	bool m_lockjump;		    //Denies the player to jump
+	bool m_jumping;			    //Is player jumping ?
 
-	//The tile at slopex, slopey in the last frame
-	int m_prevTileX;
-	int m_prevTileY;
+	int m_prevTileX;			//Previous Tile's X co-ordinate (Tile encompassing player co-ordinates) 
+	int m_prevTileY;			//Previous Tile's Y co-ordinate (Tile encompassing player co-ordinates) 
 
 	//Initializers
 	void initHitbox();
@@ -39,10 +38,10 @@ private:
 	//Jump and movements
 	void unlockjump();											//Player may jump again if the conditions in this function are true
 	void movePlayerBy(sf::Vector2f& velocity);					//Player's position is moved by velocity
-	void updateMapCollision();									//Checks collison of player with the map
+	void updateMapCollision();									//Checks collison of player with the tiles
 	void updateMovement();										//Take inputs from keyboard
-	void updatePhysics();
-	void updateMiscellaneousItems();
+	void updatePhysics();										//Updates physics 
+	void updateMiscellaneousItems();							//Updates health fill up station, save progress, increase max health
 
 public:
 	Player();
@@ -52,7 +51,7 @@ public:
 	void updateHP(const int x);                   //Updates player's health
 
 	//Accessors
-	const sf::Vector2i& getPosition() const;
+	const sf::Vector2f& getPosition() const;
 	const std::pair<int, int> getHealth() const;
 	const sf::FloatRect& getHitbox() const;
 

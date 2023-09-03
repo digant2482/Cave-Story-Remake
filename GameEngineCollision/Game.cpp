@@ -4,19 +4,21 @@
 //Initializers
 void Game::initWindow()
 {
-	/* Utility : initializes window (game screen) & sets frame rate */
+	/* Initializes window (game screen) & sets frame rate */
 	m_window = new sf::RenderWindow(sf::VideoMode(800, 600), "Cave Story", sf::Style::Titlebar | sf::Style::Close);
 	m_window->setFramerateLimit(60);
 }
 
 void Game::initPlayer()
 {
+	/* Initializes player position & set player's weapon status */
 	m_player.setPosition(500, 270);
 	m_playerHasGun = true;
 }
 
 void Game::initEnemies()
 {
+	/* Instantiates enemies */
 	m_batArray.emplace_back(std::make_unique<Bat>());
 	m_batArray[0]->setPosition(360, 280);
 	m_critterArray.emplace_back(std::make_unique<Critter>());
@@ -39,6 +41,7 @@ Game::~Game()
 //Functions
 void Game::run()
 {
+	/* Runs game loop */
 	while (m_window->isOpen())
 	{
 		windowPollEvents();
@@ -51,7 +54,7 @@ void Game::run()
 
 void Game::windowPollEvents()
 {
-	/* Utility : closes the game */
+	/* Closes the game */
 	sf::Event ev;
 	while (m_window->pollEvent(ev))
 	{
@@ -65,7 +68,7 @@ void Game::windowPollEvents()
 
 void Game::gameUpdate()
 {
-	/* Utility : updates all the parts of game */
+	/* Updates movement, collision, death, and more events for all the characters of the game  */
 	m_player.update();
 
 	for (auto& bat : m_batArray)
@@ -82,10 +85,10 @@ void Game::gameUpdate()
 
 void Game::gameRender()
 {
-	/* Utility : Clears the window before next frame
-	- Draws animation to the buffer
-	- Displays the buffer
-	*/
+   /* Clears the window before next frame
+	* Renders animation to the buffer
+	* Displays the buffer */
+
 	m_window->clear();
 
 	m_tilemap.render(m_window, m_player);

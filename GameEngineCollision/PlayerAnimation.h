@@ -1,22 +1,25 @@
 #pragma once
 
-enum PlayerState { IDLE = 0, MOVING_RIGHT, MOVING_LEFT, JUMPING }; //playeranimationstate
+//Player animation states
+enum PlayerState { IDLE = 0, MOVING_RIGHT, MOVING_LEFT, JUMPING }; 
 
 class PlayerAnimation
 {
 private:
 	//Player Sprite
-	sf::Texture m_textureSheet;
-	sf::Sprite m_sprite;
+	sf::Texture m_texture;
+	sf::Sprite m_spriteSheet;
 
-	//IntRect of states
-	sf::IntRect m_runLeft;
-	sf::IntRect m_runRight;
+	//Texture Rectangles (To be snipped from spritesheet)
+	sf::IntRect m_runLeft;                   //Running left texture rectangle
+	sf::IntRect m_runRight;					 //Running right texture rectangle
 
-	//Variables
-	PlayerState m_previousPlayerState;
-	sf::Clock m_animationTimer;
-	sf::IntRect m_currentFrame;
+	//Animation Variables
+	PlayerState m_previousPlayerState;       //Player's moving state in previous frame
+	sf::Clock m_animationTimer;              //Times the interval (0.2 seconds) after which new graphic is rendered (for smooth movement)
+	sf::Clock m_revivalStateTimer;	         //Times player's revival state (3 seconds)
+	sf::Clock m_revivalAnimationTimer;		 //Times the interval for which not to render player sprite during revival (0.1 seconds)
+	sf::IntRect m_currentFrame;				 //Variable that is assigned current texture rectangle
 	bool m_facingRight;
 
 	//Initializers
@@ -25,33 +28,30 @@ private:
 	void initVariables();
 
 	//Private Functions
-	const sf::IntRect getIdleRightTexture();
-	const sf::IntRect getIdleLeftTexture();
-	const sf::IntRect getRunLeftTexture();
-	const sf::IntRect getRunRightTexture();
+	const sf::IntRect getIdleRightTexture(); //Gets texture rectangle for idle state facing right
+	const sf::IntRect getIdleLeftTexture();  //Gets texture rectangle for idle state facing left
+	const sf::IntRect getRunLeftTexture();   //Gets texture rectangle for running state facing left
+	const sf::IntRect getRunRightTexture();  //Gets texture rectangle for running state facing right
 
 protected:
 	PlayerAnimation();
 
-	//Variables
-	PlayerState m_playerState;
+	//Player Moving State
+	PlayerState m_playerState;               //Player's moving state
 
-	//Revival State
-	bool m_revivalState;			//Activates when player is hit, player cannot be hit again if activated
-	sf::Clock m_revivalStateTimer;	//Time for which player is in revival state
-	sf::Clock m_revivalAnimationTimer;
-
+	//Player Revival State
+	bool m_revivalState;			         //True when player is hit, player cannot be hit again if true
 
 	//Functions
-	void updateRevivalState();
-	void updatePlayerAnimation();
+	void updateRevivalState();				 //Updates player's revival state
+	void updatePlayerAnimation();            //Updates player's animation state
 	void renderPlayerAnimation(sf::RenderTarget* target, sf::FloatRect& playerHitbox);
 
 public:
 	//Modifiers
-	void setRevivalState(const bool state);
+	void setRevivalState(const bool state);  //Sets player's revival state
 
 	//Accessors
-	const bool& isFacingRight();
-	const bool& isRevivalStateActive() const;
+	const bool& isFacingRight() const;		 //True if player is facing right
+	const bool& isRevivalStateActive() const;//True if revival state is true
 };
