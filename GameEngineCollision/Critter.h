@@ -30,7 +30,7 @@ private:
 	int m_prevTileY;
 
 	//Initializers
-	void initHitbox();
+	void initHitbox(const float x, const float y);
 	void initHealth();
 	void initOrientation();
 	void initPhysics();
@@ -44,10 +44,9 @@ private:
 	void updateCritterWallCollision();
 	void unlockJump();
 public:
-	Critter();
+	Critter(const float x, const float y);
 
 	//Modifiers
-	void setPosition(const int x, const int y);
 	const int& updateHealth(const int healthPoints);
 
 	//Accessors

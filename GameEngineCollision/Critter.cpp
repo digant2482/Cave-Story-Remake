@@ -1,46 +1,47 @@
 #include "stdafx.h"
 #include "Critter.h"
+#define JUMPVELOCITY -8.f
 
-void Critter::initHitbox()
+void Critter::initHitbox(const float x, const float y)
 {
-	m_hitbox.left = 0.f;
-	m_hitbox.top = 0.f;
+	/* Initializes critter's hitbox */
+	m_hitbox.left = x;
+	m_hitbox.top = y;
 	m_hitbox.width = 24.f;
 	m_hitbox.height = 32.f;
 }
 
 void Critter::initHealth()
 {
+	/* Initializes health */
 	m_currentHealth = 2;
 }
 
 void Critter::initOrientation()
 {
+	/* Initializes Orientation */
 	m_facingRight = false;
 }
 
 void Critter::initPhysics()
 {
+	/* Initializes gravity */
 	m_gravity = 0.5f;
 }
 
-Critter::Critter()
+Critter::Critter(const float x, const float y)
 {
-	initHitbox();
+	/* Calls all initializers */
+	initHitbox(x, y);
 	initHealth();
 	initOrientation();
 	initPhysics();
 }
 
-void Critter::setPosition(const int x, const int y)
-{
-	m_hitbox.left = x;
-	m_hitbox.top  = y;
-}
-
 const int& Critter::updateHealth(const int healthPoints)
 {
-	//Updates health and returns new health points
+	/* Updates health 
+	 * @return new health points */
 	m_currentHealth += healthPoints;
 	return m_currentHealth;
 }
@@ -48,6 +49,7 @@ const int& Critter::updateHealth(const int healthPoints)
 //Functions
 void Critter::updateOrientation(Player& player)
 {
+	/* Updates critter's orientation */
 	if (player.getPosition().x > m_hitbox.left)
 		m_facingRight = true;
 	else
@@ -56,6 +58,12 @@ void Critter::updateOrientation(Player& player)
 
 void Critter::updateMovement(Player& player)
 {
+	/* Critter's movement is defined by three states : IDLE, NOTICING, JUMPING based on distance with the player
+	*  In IDLE state (player's euclidean distance > 150 pixels) critter does nothing
+	*  In NOTICING state (player's euclidean distance < 150 and > 110 pixels) critter does nothing (animation changes)
+	*  In JUMPING state (player's euclidean distance < 110 pixels) critter jumps and moves towards player
+	*/
+
 	m_critterState = CritterState::IDLE; //IDLE state by default
 	float distanceWithPlayerX = std::abs(player.getPosition().x - m_hitbox.getPosition().x);
 	float distanceWithPlayerY = std::abs(player.getPosition().y - m_hitbox.getPosition().y);
@@ -63,36 +71,43 @@ void Critter::updateMovement(Player& player)
 
 	if (euclideanDistance < 150 && euclideanDistance > 110)
 	{
-		m_critterState = CritterState::NOTICING; //NOTICING if distance is between 30 and 50 pixels
+		m_critterState = CritterState::NOTICING; 
 	}
-	else if(euclideanDistance < 110)
+	else if (euclideanDistance < 110)
 	{
-		m_critterState = CritterState::JUMPING;  //JUMPING if distance is less than 30
-		//Give velocity in x direction until the condition in not false
+		m_critterState = CritterState::JUMPING;  
 
-			if (!m_jumping)
+		//Move again only is critter is not jumping
+		if (!m_jumping)
+		{
+			//Timer is to make movement smooth
+			if (m_movementTimer.getElapsedTime().asSeconds() >= 2.f)
 			{
-				if (m_movementTimer.getElapsedTime().asSeconds() >= 2.f)
-				{
-					m_velocity.y = -8.f;
-					m_jumping = true;
-					m_lockjump = true;
-					m_movementTimer.restart();
-				}
+				m_velocity.y = JUMPVELOCITY;
+				m_jumping = true;
+				m_lockjump = true;
+				m_movementTimer.restart();
 			}
-			if (m_facingRight)
-				m_velocity.x = 0.8f;
-			else
-				m_velocity.x = -0.8f;
-			if (m_velocity.y >= 0 && !m_jumping)
-				m_velocity.x = 0;
+		}
+
+		//Gives velocity in x direction based on critter's orientation
+		if (m_facingRight)
+			m_velocity.x = 0.8f;
+		else
+			m_velocity.x = -0.8f;
+
+		//Zero velocity in x direction if critter is not jumping (to prevent skidding in x direction)
+		if (!m_jumping)
+			m_velocity.x = 0;
 	}
-	if (m_critterState == CritterState::IDLE)
-		m_velocity.x = 0;
 }
 
 void Critter::updatePlayerEnemyCollision(Player& player)
 {
+	/* Checks player's collision with enemy
+	*  Decreases player's health in the event of collision
+	*  Activates player's revival state
+	*/
 	if (m_hitbox.intersects(player.getHitbox()) && !player.isRevivalStateActive())
 	{
 		player.updateHP(-1);
@@ -102,6 +117,10 @@ void Critter::updatePlayerEnemyCollision(Player& player)
 
 void Critter::updateCritterWallCollision()
 {
+	/* The function checks for slope collision first
+	*  If slope collision is not detected, the function checks normal tile collision
+	*/
+
 	//Check for slopes (only if moving down) 
 	if (m_velocity.y > 0)
 	{
@@ -255,6 +274,7 @@ void Critter::updateCritterWallCollision()
 
 void Critter::unlockJump()
 {
+	/* Allows jumping for next frame */
 	m_lockjump = false;
 	m_jumping = false;
 }
@@ -262,11 +282,19 @@ void Critter::unlockJump()
 //Accessors
 const sf::FloatRect& Critter::getBounds() const
 {
+	/* @return player's hitbox */
 	return m_hitbox;
 }
 
 void Critter::update(Player& player)
 {
+	/* Updates:
+	*  Critter's orientation (right/left facing)
+	*  Critter's movement (critter follows the player)
+	*  Critter's collision with player (updates player's health and player's revival state)
+	*  Critter's collision with walls
+	*  Critter's animation
+	*/
 	updateOrientation(player);
 	updateMovement(player);
 	updatePlayerEnemyCollision(player);
@@ -276,5 +304,6 @@ void Critter::update(Player& player)
 
 void Critter::render(sf::RenderTarget* target)
 {
+	/* Renders critter */
 	renderCritterAnimation(target, m_hitbox);
 }

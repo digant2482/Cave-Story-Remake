@@ -18,10 +18,9 @@ class Tilemap : public AnimatedTiles
 private:
 	sf::Texture m_backgroundTexture;
 	sf::Sprite	m_backgroundSprite;
-	static std::vector<std::vector<Tile>> m_levelMap;
+	static const std::vector<std::vector<Tile>> m_levelMap;
 
 	void initBackground();
-	void initLevelmap();
 public:	
 	static const sf::FloatRect healthFillUpStationTile;
 	static const sf::FloatRect increaseMaxHealthTile;

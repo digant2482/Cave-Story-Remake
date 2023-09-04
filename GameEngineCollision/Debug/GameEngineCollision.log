@@ -1,301 +1,354 @@
 ﻿  stdafx.cpp
   AnimatedTiles.cpp
-C:\Dev\GameEngineCollision\GameEngineCollision\AnimatedTiles.cpp(37,33): warning C4244: '+=': conversion from 'float' to 'T', possible loss of data
+C:\Dev\GameEngineCollision\GameEngineCollision\AnimatedTiles.cpp(45,33): warning C4244: '+=': conversion from 'float' to 'T', possible loss of data
           with
           [
               T=int
           ]
-C:\Dev\GameEngineCollision\GameEngineCollision\AnimatedTiles.cpp(39,33): warning C4244: '=': conversion from 'float' to 'T', possible loss of data
+C:\Dev\GameEngineCollision\GameEngineCollision\AnimatedTiles.cpp(47,33): warning C4244: '=': conversion from 'float' to 'T', possible loss of data
           with
           [
               T=int
           ]
-C:\Dev\GameEngineCollision\GameEngineCollision\AnimatedTiles.cpp(41,22): warning C4244: '+=': conversion from 'float' to 'T', possible loss of data
+C:\Dev\GameEngineCollision\GameEngineCollision\AnimatedTiles.cpp(49,22): warning C4244: '+=': conversion from 'float' to 'T', possible loss of data
           with
           [
               T=int
           ]
-C:\Dev\GameEngineCollision\GameEngineCollision\AnimatedTiles.cpp(43,22): warning C4244: '=': conversion from 'float' to 'T', possible loss of data
+C:\Dev\GameEngineCollision\GameEngineCollision\AnimatedTiles.cpp(51,22): warning C4244: '=': conversion from 'float' to 'T', possible loss of data
           with
           [
               T=int
           ]
-C:\Dev\GameEngineCollision\GameEngineCollision\AnimatedTiles.cpp(45,31): warning C4244: '+=': conversion from 'float' to 'T', possible loss of data
+C:\Dev\GameEngineCollision\GameEngineCollision\AnimatedTiles.cpp(53,31): warning C4244: '+=': conversion from 'float' to 'T', possible loss of data
           with
           [
               T=int
           ]
-C:\Dev\GameEngineCollision\GameEngineCollision\AnimatedTiles.cpp(47,31): warning C4244: '=': conversion from 'float' to 'T', possible loss of data
+C:\Dev\GameEngineCollision\GameEngineCollision\AnimatedTiles.cpp(55,31): warning C4244: '=': conversion from 'float' to 'T', possible loss of data
           with
           [
               T=int
           ]
   Bat.cpp
-C:\Dev\GameEngineCollision\GameEngineCollision\Bat.cpp(62,18): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Dev\GameEngineCollision\GameEngineCollision\Bat.cpp(61,20): warning C4305: '+=': truncation from 'double' to 'float'
   Critter.cpp
-C:\Dev\GameEngineCollision\GameEngineCollision\Critter.cpp(37,18): warning C4244: '=': conversion from 'const int' to 'T', possible loss of data
+C:\Dev\GameEngineCollision\GameEngineCollision\Critter.cpp(131,10): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
           with
           [
               T=float
           ]
-C:\Dev\GameEngineCollision\GameEngineCollision\Critter.cpp(38,18): warning C4244: '=': conversion from 'const int' to 'T', possible loss of data
+C:\Dev\GameEngineCollision\GameEngineCollision\Critter.cpp(134,50): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
           with
           [
               T=float
           ]
-C:\Dev\GameEngineCollision\GameEngineCollision\Critter.cpp(112,10): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+C:\Dev\GameEngineCollision\GameEngineCollision\Critter.cpp(180,24): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
           with
           [
               T=float
           ]
-C:\Dev\GameEngineCollision\GameEngineCollision\Critter.cpp(115,50): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+C:\Dev\GameEngineCollision\GameEngineCollision\Critter.cpp(189,42): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
           with
           [
               T=float
           ]
-C:\Dev\GameEngineCollision\GameEngineCollision\Critter.cpp(161,24): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+C:\Dev\GameEngineCollision\GameEngineCollision\Critter.cpp(225,90): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
           with
           [
               T=float
           ]
-C:\Dev\GameEngineCollision\GameEngineCollision\Critter.cpp(170,42): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+C:\Dev\GameEngineCollision\GameEngineCollision\Critter.cpp(225,66): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
           with
           [
               T=float
           ]
-C:\Dev\GameEngineCollision\GameEngineCollision\Critter.cpp(206,90): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+C:\Dev\GameEngineCollision\GameEngineCollision\Critter.cpp(232,73): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
           with
           [
               T=float
           ]
-C:\Dev\GameEngineCollision\GameEngineCollision\Critter.cpp(206,66): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+C:\Dev\GameEngineCollision\GameEngineCollision\Critter.cpp(232,49): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
           with
           [
               T=float
           ]
-C:\Dev\GameEngineCollision\GameEngineCollision\Critter.cpp(213,73): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+C:\Dev\GameEngineCollision\GameEngineCollision\Critter.cpp(233,47): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-C:\Dev\GameEngineCollision\GameEngineCollision\Critter.cpp(213,49): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+C:\Dev\GameEngineCollision\GameEngineCollision\Critter.cpp(241,67): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
           with
           [
               T=float
           ]
-C:\Dev\GameEngineCollision\GameEngineCollision\Critter.cpp(214,47): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+C:\Dev\GameEngineCollision\GameEngineCollision\Critter.cpp(241,47): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
           with
           [
               T=float
           ]
-C:\Dev\GameEngineCollision\GameEngineCollision\Critter.cpp(222,67): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+C:\Dev\GameEngineCollision\GameEngineCollision\Critter.cpp(243,46): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-C:\Dev\GameEngineCollision\GameEngineCollision\Critter.cpp(222,47): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+C:\Dev\GameEngineCollision\GameEngineCollision\Critter.cpp(255,87): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
           with
           [
               T=float
           ]
-C:\Dev\GameEngineCollision\GameEngineCollision\Critter.cpp(224,46): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+C:\Dev\GameEngineCollision\GameEngineCollision\Critter.cpp(255,49): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
           with
           [
               T=float
           ]
-C:\Dev\GameEngineCollision\GameEngineCollision\Critter.cpp(236,87): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+C:\Dev\GameEngineCollision\GameEngineCollision\Critter.cpp(270,55): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
           with
           [
               T=float
           ]
-C:\Dev\GameEngineCollision\GameEngineCollision\Critter.cpp(236,49): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
-          with
-          [
-              T=float
-          ]
-C:\Dev\GameEngineCollision\GameEngineCollision\Critter.cpp(251,55): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
-          with
-          [
-              T=float
-          ]
-C:\Dev\GameEngineCollision\GameEngineCollision\Critter.cpp(252,49): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+C:\Dev\GameEngineCollision\GameEngineCollision\Critter.cpp(271,49): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
           with
           [
               T=float
           ]
   CritterAnimation.cpp
   Game.cpp
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\include\memory(3477,56): warning C4244: 'argument': conversion from '_Ty' to 'const float', possible loss of data
+          with
+          [
+              _Ty=int
+          ]
+C:\Dev\GameEngineCollision\GameEngineCollision\Game.cpp(22,31): message : see reference to function template instantiation 'std::unique_ptr<Bat,std::default_delete<Bat>> std::make_unique<Bat,int,int,0>(int &&,int &&)' being compiled
   Gun.cpp
-C:\Dev\GameEngineCollision\GameEngineCollision\Gun.cpp(129,14): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+C:\Dev\GameEngineCollision\GameEngineCollision\Gun.cpp(150,14): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
           with
           [
               T=float
           ]
-C:\Dev\GameEngineCollision\GameEngineCollision\Gun.cpp(149,20): warning C4018: '<': signed/unsigned mismatch
-C:\Dev\GameEngineCollision\GameEngineCollision\Gun.cpp(171,20): warning C4018: '<': signed/unsigned mismatch
-C:\Dev\GameEngineCollision\GameEngineCollision\Gun.cpp(208,12): warning C4018: '<': signed/unsigned mismatch
-C:\Dev\GameEngineCollision\GameEngineCollision\Gun.cpp(214,32): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
-C:\Dev\GameEngineCollision\GameEngineCollision\Gun.cpp(221,99): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+C:\Dev\GameEngineCollision\GameEngineCollision\Gun.cpp(177,20): warning C4018: '<': signed/unsigned mismatch
+C:\Dev\GameEngineCollision\GameEngineCollision\Gun.cpp(205,20): warning C4018: '<': signed/unsigned mismatch
+C:\Dev\GameEngineCollision\GameEngineCollision\Gun.cpp(242,12): warning C4018: '<': signed/unsigned mismatch
+C:\Dev\GameEngineCollision\GameEngineCollision\Gun.cpp(248,32): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
+C:\Dev\GameEngineCollision\GameEngineCollision\Gun.cpp(255,99): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
           with
           [
               T=float
           ]
-C:\Dev\GameEngineCollision\GameEngineCollision\Gun.cpp(221,65): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+C:\Dev\GameEngineCollision\GameEngineCollision\Gun.cpp(255,65): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
           with
           [
               T=float
           ]
-C:\Dev\GameEngineCollision\GameEngineCollision\Gun.cpp(240,12): warning C4018: '<': signed/unsigned mismatch
-C:\Dev\GameEngineCollision\GameEngineCollision\Gun.cpp(246,32): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
-C:\Dev\GameEngineCollision\GameEngineCollision\Gun.cpp(253,99): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+C:\Dev\GameEngineCollision\GameEngineCollision\Gun.cpp(274,12): warning C4018: '<': signed/unsigned mismatch
+C:\Dev\GameEngineCollision\GameEngineCollision\Gun.cpp(280,32): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
+C:\Dev\GameEngineCollision\GameEngineCollision\Gun.cpp(287,99): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
           with
           [
               T=float
           ]
-C:\Dev\GameEngineCollision\GameEngineCollision\Gun.cpp(253,65): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+C:\Dev\GameEngineCollision\GameEngineCollision\Gun.cpp(287,65): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
           with
           [
               T=float
           ]
-C:\Dev\GameEngineCollision\GameEngineCollision\Gun.cpp(272,12): warning C4018: '<': signed/unsigned mismatch
-C:\Dev\GameEngineCollision\GameEngineCollision\Gun.cpp(278,32): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
-C:\Dev\GameEngineCollision\GameEngineCollision\Gun.cpp(285,99): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+C:\Dev\GameEngineCollision\GameEngineCollision\Gun.cpp(306,12): warning C4018: '<': signed/unsigned mismatch
+C:\Dev\GameEngineCollision\GameEngineCollision\Gun.cpp(312,32): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
+C:\Dev\GameEngineCollision\GameEngineCollision\Gun.cpp(319,99): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
           with
           [
               T=float
           ]
-C:\Dev\GameEngineCollision\GameEngineCollision\Gun.cpp(285,65): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+C:\Dev\GameEngineCollision\GameEngineCollision\Gun.cpp(319,65): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
           with
           [
               T=float
           ]
-C:\Dev\GameEngineCollision\GameEngineCollision\Gun.cpp(306,11): warning C4018: '<': signed/unsigned mismatch
-C:\Dev\GameEngineCollision\GameEngineCollision\Gun.cpp(318,11): warning C4018: '<': signed/unsigned mismatch
-  GunLevelPoints.cpp
+C:\Dev\GameEngineCollision\GameEngineCollision\Gun.cpp(345,11): warning C4018: '<': signed/unsigned mismatch
+C:\Dev\GameEngineCollision\GameEngineCollision\Gun.cpp(357,11): warning C4018: '<': signed/unsigned mismatch
+  GunLevelPointsTriangle.cpp
   HUD.cpp
-  HealthUp.cpp
+  HealthUpHeart.cpp
   Player.cpp
-C:\Dev\GameEngineCollision\GameEngineCollision\Player.cpp(49,18): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+C:\Dev\GameEngineCollision\GameEngineCollision\Player.cpp(52,18): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-C:\Dev\GameEngineCollision\GameEngineCollision\Player.cpp(50,17): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+C:\Dev\GameEngineCollision\GameEngineCollision\Player.cpp(53,17): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-C:\Dev\GameEngineCollision\GameEngineCollision\Player.cpp(89,10): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+C:\Dev\GameEngineCollision\GameEngineCollision\Player.cpp(96,10): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
           with
           [
               T=float
           ]
-C:\Dev\GameEngineCollision\GameEngineCollision\Player.cpp(92,50): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+C:\Dev\GameEngineCollision\GameEngineCollision\Player.cpp(99,50): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
           with
           [
               T=float
           ]
-C:\Dev\GameEngineCollision\GameEngineCollision\Player.cpp(138,24): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+C:\Dev\GameEngineCollision\GameEngineCollision\Player.cpp(145,24): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
           with
           [
               T=float
           ]
-C:\Dev\GameEngineCollision\GameEngineCollision\Player.cpp(147,42): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+C:\Dev\GameEngineCollision\GameEngineCollision\Player.cpp(154,42): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
           with
           [
               T=float
           ]
-C:\Dev\GameEngineCollision\GameEngineCollision\Player.cpp(183,90): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+C:\Dev\GameEngineCollision\GameEngineCollision\Player.cpp(190,90): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
           with
           [
               T=float
           ]
-C:\Dev\GameEngineCollision\GameEngineCollision\Player.cpp(183,66): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+C:\Dev\GameEngineCollision\GameEngineCollision\Player.cpp(190,66): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
           with
           [
               T=float
           ]
-C:\Dev\GameEngineCollision\GameEngineCollision\Player.cpp(190,73): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+C:\Dev\GameEngineCollision\GameEngineCollision\Player.cpp(197,73): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
           with
           [
               T=float
           ]
-C:\Dev\GameEngineCollision\GameEngineCollision\Player.cpp(190,49): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+C:\Dev\GameEngineCollision\GameEngineCollision\Player.cpp(197,49): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
           with
           [
               T=float
           ]
-C:\Dev\GameEngineCollision\GameEngineCollision\Player.cpp(191,47): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+C:\Dev\GameEngineCollision\GameEngineCollision\Player.cpp(198,47): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-C:\Dev\GameEngineCollision\GameEngineCollision\Player.cpp(199,67): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+C:\Dev\GameEngineCollision\GameEngineCollision\Player.cpp(206,67): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
           with
           [
               T=float
           ]
-C:\Dev\GameEngineCollision\GameEngineCollision\Player.cpp(199,47): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+C:\Dev\GameEngineCollision\GameEngineCollision\Player.cpp(206,47): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
           with
           [
               T=float
           ]
-C:\Dev\GameEngineCollision\GameEngineCollision\Player.cpp(201,46): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+C:\Dev\GameEngineCollision\GameEngineCollision\Player.cpp(208,46): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-C:\Dev\GameEngineCollision\GameEngineCollision\Player.cpp(213,87): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+C:\Dev\GameEngineCollision\GameEngineCollision\Player.cpp(220,87): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
           with
           [
               T=float
           ]
-C:\Dev\GameEngineCollision\GameEngineCollision\Player.cpp(213,49): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+C:\Dev\GameEngineCollision\GameEngineCollision\Player.cpp(220,49): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
           with
           [
               T=float
           ]
-C:\Dev\GameEngineCollision\GameEngineCollision\Player.cpp(228,53): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+C:\Dev\GameEngineCollision\GameEngineCollision\Player.cpp(235,53): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
           with
           [
               T=float
           ]
-C:\Dev\GameEngineCollision\GameEngineCollision\Player.cpp(229,49): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+C:\Dev\GameEngineCollision\GameEngineCollision\Player.cpp(236,49): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
           with
           [
               T=float
           ]
   PlayerAnimation.cpp
   Tilemap.cpp
-C:\Dev\GameEngineCollision\GameEngineCollision\Tilemap.cpp(64,31): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Dev\GameEngineCollision\GameEngineCollision\Tilemap.cpp(64,23): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Dev\GameEngineCollision\GameEngineCollision\Tilemap.cpp(73,31): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Dev\GameEngineCollision\GameEngineCollision\Tilemap.cpp(73,23): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   WallCollision.cpp
-C:\Dev\GameEngineCollision\GameEngineCollision\WallCollision.cpp(16,14): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+C:\Dev\GameEngineCollision\GameEngineCollision\WallCollision.cpp(36,27): warning C4244: '+=': conversion from 'double' to 'T', possible loss of data
           with
           [
               T=float
           ]
-C:\Dev\GameEngineCollision\GameEngineCollision\WallCollision.cpp(37,14): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+C:\Dev\GameEngineCollision\GameEngineCollision\WallCollision.cpp(45,27): warning C4244: '+=': conversion from 'double' to 'T', possible loss of data
           with
           [
               T=float
           ]
-C:\Dev\GameEngineCollision\GameEngineCollision\WallCollision.cpp(58,14): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+C:\Dev\GameEngineCollision\GameEngineCollision\WallCollision.cpp(67,14): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
           with
           [
               T=float
           ]
-C:\Dev\GameEngineCollision\GameEngineCollision\WallCollision.cpp(95,27): warning C4244: '+=': conversion from 'double' to 'T', possible loss of data
+C:\Dev\GameEngineCollision\GameEngineCollision\WallCollision.cpp(100,14): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
           with
           [
               T=float
           ]
-C:\Dev\GameEngineCollision\GameEngineCollision\WallCollision.cpp(104,27): warning C4244: '+=': conversion from 'double' to 'T', possible loss of data
+C:\Dev\GameEngineCollision\GameEngineCollision\WallCollision.cpp(135,14): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
           with
           [
               T=float
           ]
   main.cpp
   Generating Code...
-C:\Dev\GameEngineCollision\GameEngineCollision\Player.cpp(64): warning C4172: returning address of local variable or temporary
+C:\Dev\GameEngineCollision\GameEngineCollision\Player.cpp(67): warning C4172: returning address of local variable or temporary
+sfml-graphics-s-d.lib(BlendMode.obj) : warning LNK4099: PDB '' was not found with 'sfml-graphics-s-d.lib(BlendMode.obj)' or at ''; linking object as if no debug info
+sfml-graphics-s-d.lib(Color.obj) : warning LNK4099: PDB '' was not found with 'sfml-graphics-s-d.lib(Color.obj)' or at ''; linking object as if no debug info
+sfml-graphics-s-d.lib(Glsl.obj) : warning LNK4099: PDB '' was not found with 'sfml-graphics-s-d.lib(Glsl.obj)' or at ''; linking object as if no debug info
+sfml-graphics-s-d.lib(GLCheck.obj) : warning LNK4099: PDB '' was not found with 'sfml-graphics-s-d.lib(GLCheck.obj)' or at ''; linking object as if no debug info
+sfml-graphics-s-d.lib(GLExtensions.obj) : warning LNK4099: PDB '' was not found with 'sfml-graphics-s-d.lib(GLExtensions.obj)' or at ''; linking object as if no debug info
+sfml-graphics-s-d.lib(Image.obj) : warning LNK4099: PDB '' was not found with 'sfml-graphics-s-d.lib(Image.obj)' or at ''; linking object as if no debug info
+sfml-graphics-s-d.lib(ImageLoader.obj) : warning LNK4099: PDB '' was not found with 'sfml-graphics-s-d.lib(ImageLoader.obj)' or at ''; linking object as if no debug info
+sfml-graphics-s-d.lib(RenderStates.obj) : warning LNK4099: PDB '' was not found with 'sfml-graphics-s-d.lib(RenderStates.obj)' or at ''; linking object as if no debug info
+sfml-graphics-s-d.lib(RenderTarget.obj) : warning LNK4099: PDB '' was not found with 'sfml-graphics-s-d.lib(RenderTarget.obj)' or at ''; linking object as if no debug info
+sfml-graphics-s-d.lib(RenderWindow.obj) : warning LNK4099: PDB '' was not found with 'sfml-graphics-s-d.lib(RenderWindow.obj)' or at ''; linking object as if no debug info
+sfml-graphics-s-d.lib(Shader.obj) : warning LNK4099: PDB '' was not found with 'sfml-graphics-s-d.lib(Shader.obj)' or at ''; linking object as if no debug info
+sfml-graphics-s-d.lib(Texture.obj) : warning LNK4099: PDB '' was not found with 'sfml-graphics-s-d.lib(Texture.obj)' or at ''; linking object as if no debug info
+sfml-graphics-s-d.lib(TextureSaver.obj) : warning LNK4099: PDB '' was not found with 'sfml-graphics-s-d.lib(TextureSaver.obj)' or at ''; linking object as if no debug info
+sfml-graphics-s-d.lib(Transform.obj) : warning LNK4099: PDB '' was not found with 'sfml-graphics-s-d.lib(Transform.obj)' or at ''; linking object as if no debug info
+sfml-graphics-s-d.lib(Transformable.obj) : warning LNK4099: PDB '' was not found with 'sfml-graphics-s-d.lib(Transformable.obj)' or at ''; linking object as if no debug info
+sfml-graphics-s-d.lib(View.obj) : warning LNK4099: PDB '' was not found with 'sfml-graphics-s-d.lib(View.obj)' or at ''; linking object as if no debug info
+sfml-graphics-s-d.lib(Vertex.obj) : warning LNK4099: PDB '' was not found with 'sfml-graphics-s-d.lib(Vertex.obj)' or at ''; linking object as if no debug info
+sfml-graphics-s-d.lib(Shape.obj) : warning LNK4099: PDB '' was not found with 'sfml-graphics-s-d.lib(Shape.obj)' or at ''; linking object as if no debug info
+sfml-graphics-s-d.lib(CircleShape.obj) : warning LNK4099: PDB '' was not found with 'sfml-graphics-s-d.lib(CircleShape.obj)' or at ''; linking object as if no debug info
+sfml-graphics-s-d.lib(RectangleShape.obj) : warning LNK4099: PDB '' was not found with 'sfml-graphics-s-d.lib(RectangleShape.obj)' or at ''; linking object as if no debug info
+sfml-graphics-s-d.lib(Sprite.obj) : warning LNK4099: PDB '' was not found with 'sfml-graphics-s-d.lib(Sprite.obj)' or at ''; linking object as if no debug info
+sfml-graphics-s-d.lib(VertexArray.obj) : warning LNK4099: PDB '' was not found with 'sfml-graphics-s-d.lib(VertexArray.obj)' or at ''; linking object as if no debug info
+sfml-graphics-s-d.lib(VertexBuffer.obj) : warning LNK4099: PDB '' was not found with 'sfml-graphics-s-d.lib(VertexBuffer.obj)' or at ''; linking object as if no debug info
+sfml-graphics-s-d.lib(RenderTextureImpl.obj) : warning LNK4099: PDB '' was not found with 'sfml-graphics-s-d.lib(RenderTextureImpl.obj)' or at ''; linking object as if no debug info
+sfml-graphics-s-d.lib(RenderTextureImplFBO.obj) : warning LNK4099: PDB '' was not found with 'sfml-graphics-s-d.lib(RenderTextureImplFBO.obj)' or at ''; linking object as if no debug info
+sfml-window-s-d.lib(Context.obj) : warning LNK4099: PDB '' was not found with 'sfml-window-s-d.lib(Context.obj)' or at ''; linking object as if no debug info
+sfml-window-s-d.lib(Cursor.obj) : warning LNK4099: PDB '' was not found with 'sfml-window-s-d.lib(Cursor.obj)' or at ''; linking object as if no debug info
+sfml-window-s-d.lib(GlContext.obj) : warning LNK4099: PDB '' was not found with 'sfml-window-s-d.lib(GlContext.obj)' or at ''; linking object as if no debug info
+sfml-window-s-d.lib(GlResource.obj) : warning LNK4099: PDB '' was not found with 'sfml-window-s-d.lib(GlResource.obj)' or at ''; linking object as if no debug info
+sfml-window-s-d.lib(Joystick.obj) : warning LNK4099: PDB '' was not found with 'sfml-window-s-d.lib(Joystick.obj)' or at ''; linking object as if no debug info
+sfml-window-s-d.lib(JoystickManager.obj) : warning LNK4099: PDB '' was not found with 'sfml-window-s-d.lib(JoystickManager.obj)' or at ''; linking object as if no debug info
+sfml-window-s-d.lib(Keyboard.obj) : warning LNK4099: PDB '' was not found with 'sfml-window-s-d.lib(Keyboard.obj)' or at ''; linking object as if no debug info
+sfml-window-s-d.lib(SensorManager.obj) : warning LNK4099: PDB '' was not found with 'sfml-window-s-d.lib(SensorManager.obj)' or at ''; linking object as if no debug info
+sfml-window-s-d.lib(VideoMode.obj) : warning LNK4099: PDB '' was not found with 'sfml-window-s-d.lib(VideoMode.obj)' or at ''; linking object as if no debug info
+sfml-window-s-d.lib(Window.obj) : warning LNK4099: PDB '' was not found with 'sfml-window-s-d.lib(Window.obj)' or at ''; linking object as if no debug info
+sfml-window-s-d.lib(WindowBase.obj) : warning LNK4099: PDB '' was not found with 'sfml-window-s-d.lib(WindowBase.obj)' or at ''; linking object as if no debug info
+sfml-window-s-d.lib(WindowImpl.obj) : warning LNK4099: PDB '' was not found with 'sfml-window-s-d.lib(WindowImpl.obj)' or at ''; linking object as if no debug info
+sfml-window-s-d.lib(CursorImpl.obj) : warning LNK4099: PDB '' was not found with 'sfml-window-s-d.lib(CursorImpl.obj)' or at ''; linking object as if no debug info
+sfml-window-s-d.lib(InputImpl.obj) : warning LNK4099: PDB '' was not found with 'sfml-window-s-d.lib(InputImpl.obj)' or at ''; linking object as if no debug info
+sfml-window-s-d.lib(JoystickImpl.obj) : warning LNK4099: PDB '' was not found with 'sfml-window-s-d.lib(JoystickImpl.obj)' or at ''; linking object as if no debug info
+sfml-window-s-d.lib(SensorImpl.obj) : warning LNK4099: PDB '' was not found with 'sfml-window-s-d.lib(SensorImpl.obj)' or at ''; linking object as if no debug info
+sfml-window-s-d.lib(VideoModeImpl.obj) : warning LNK4099: PDB '' was not found with 'sfml-window-s-d.lib(VideoModeImpl.obj)' or at ''; linking object as if no debug info
+sfml-window-s-d.lib(VulkanImplWin32.obj) : warning LNK4099: PDB '' was not found with 'sfml-window-s-d.lib(VulkanImplWin32.obj)' or at ''; linking object as if no debug info
+sfml-window-s-d.lib(WindowImplWin32.obj) : warning LNK4099: PDB '' was not found with 'sfml-window-s-d.lib(WindowImplWin32.obj)' or at ''; linking object as if no debug info
+sfml-window-s-d.lib(WglContext.obj) : warning LNK4099: PDB '' was not found with 'sfml-window-s-d.lib(WglContext.obj)' or at ''; linking object as if no debug info
+sfml-system-s-d.lib(Clock.obj) : warning LNK4099: PDB '' was not found with 'sfml-system-s-d.lib(Clock.obj)' or at ''; linking object as if no debug info
+sfml-system-s-d.lib(Err.obj) : warning LNK4099: PDB '' was not found with 'sfml-system-s-d.lib(Err.obj)' or at ''; linking object as if no debug info
+sfml-system-s-d.lib(Lock.obj) : warning LNK4099: PDB '' was not found with 'sfml-system-s-d.lib(Lock.obj)' or at ''; linking object as if no debug info
+sfml-system-s-d.lib(Mutex.obj) : warning LNK4099: PDB '' was not found with 'sfml-system-s-d.lib(Mutex.obj)' or at ''; linking object as if no debug info
+sfml-system-s-d.lib(Sleep.obj) : warning LNK4099: PDB '' was not found with 'sfml-system-s-d.lib(Sleep.obj)' or at ''; linking object as if no debug info
+sfml-system-s-d.lib(String.obj) : warning LNK4099: PDB '' was not found with 'sfml-system-s-d.lib(String.obj)' or at ''; linking object as if no debug info
+sfml-system-s-d.lib(ThreadLocal.obj) : warning LNK4099: PDB '' was not found with 'sfml-system-s-d.lib(ThreadLocal.obj)' or at ''; linking object as if no debug info
+sfml-system-s-d.lib(Time.obj) : warning LNK4099: PDB '' was not found with 'sfml-system-s-d.lib(Time.obj)' or at ''; linking object as if no debug info
+sfml-system-s-d.lib(ClockImpl.obj) : warning LNK4099: PDB '' was not found with 'sfml-system-s-d.lib(ClockImpl.obj)' or at ''; linking object as if no debug info
+sfml-system-s-d.lib(MutexImpl.obj) : warning LNK4099: PDB '' was not found with 'sfml-system-s-d.lib(MutexImpl.obj)' or at ''; linking object as if no debug info
+sfml-system-s-d.lib(SleepImpl.obj) : warning LNK4099: PDB '' was not found with 'sfml-system-s-d.lib(SleepImpl.obj)' or at ''; linking object as if no debug info
+sfml-system-s-d.lib(ThreadLocalImpl.obj) : warning LNK4099: PDB '' was not found with 'sfml-system-s-d.lib(ThreadLocalImpl.obj)' or at ''; linking object as if no debug info
   GameEngineCollision.vcxproj -> C:\Dev\GameEngineCollision\Debug\GameEngineCollision.exe

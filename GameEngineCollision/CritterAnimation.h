@@ -7,7 +7,7 @@ class CritterAnimation
 private:
 	//critter Sprite
 	sf::Texture m_textureSheet;
-	sf::Sprite m_sprite;
+	sf::Sprite m_spriteSheet;
 
 	//IntRect of states
 	sf::IntRect m_idleRightTexture;

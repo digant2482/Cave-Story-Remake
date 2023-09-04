@@ -1,3 +1,12 @@
+/* Bullets are categorised into three levels corresponding to the level of gun
+* 
+*  Bullet struct has:
+*  FloatRect (Rectangle bounding the bullet)
+*  Range (distance the bullet can travel before being deleted)
+*  Distance travelled (distance covered by the bullet)
+*  Fire direction (Direction in which bullet was fired left (-1), right (1))
+*/
+
 struct BulletLev1
 {
 	sf::FloatRect bulletBounds;

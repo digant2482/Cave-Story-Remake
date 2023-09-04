@@ -10,7 +10,7 @@ private:
 	sf::Texture m_texture;
 	sf::Sprite m_spriteSheet;
 
-	//Texture Rectangles (To be snipped from spritesheet)
+	//Texture Rectangles (to be snipped from spritesheet)
 	sf::IntRect m_runLeft;                   //Running left texture rectangle
 	sf::IntRect m_runRight;					 //Running right texture rectangle
 

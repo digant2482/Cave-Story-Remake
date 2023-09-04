@@ -1,11 +1,14 @@
 #include "stdafx.h"
 #include "Player.h"
+#define JUMPVELOCITY -8.f
 
 //Initializers
 void Player::initHitbox()
 {
-	//Player's hitbox (used for player's collision)
-	m_hitbox.left = 10;
+	/* Player's hitbox (used for player's collision) 
+	*  Hitbox's height and width are set using trial and error
+	*/
+	m_hitbox.left = 0;
 	m_hitbox.top = 0;
 	m_hitbox.width = 12;
 	m_hitbox.height = 32;
@@ -79,6 +82,10 @@ const sf::FloatRect& Player::getHitbox() const
 //Functions
 void Player::updateMapCollision()
 {
+	/* The function checks for slope collision first
+	*  If slope collision is not detected, the function checks normal tile collision
+	*/
+
 	//Check for slopes (only if moving down) 
 	if (m_velocity.y > 0) 
 	{
@@ -142,8 +149,8 @@ void Player::updateMapCollision()
 					//Move y to the bottom of the slope tile
 					m_hitbox.top = (tsy + 1) * TILESIZE - m_hitbox.height - 1;	
 
-					/*Test one tile lower than the bottom of the slope,
-					it's physically incorrect, but looks a lot smoother in game*/
+					/* Test one tile lower than the bottom of the slope,
+					it's physically incorrect, but looks a lot smoother in game */
 					sy = m_hitbox.top + m_hitbox.height + TILESIZE;			
 
 				}
@@ -167,7 +174,7 @@ void Player::updateMapCollision()
 	}
 
 
-	//No slope collisions detected hence check for normal tile collisions
+	/* No slope collisions detected hence check for normal tile collisions */
 
 	/*
 	* The idea is to split our evaluation process to x-axis, y-axis
@@ -252,11 +259,7 @@ void Player::movePlayerBy(sf::Vector2f& velocity)
 
 void Player::updateMovement()
 {
-	/*
-	* Moves player in a specified direction (using W,A,D keys)
-	* Sets animation state of the player (Idle, Moving left, Moving Right)
-	* Allows player to jump
-	*/
+	/* Moves player based on user input (W, A, D keys) */
 
 	m_playerState = IDLE;
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
@@ -270,10 +273,10 @@ void Player::updateMovement()
 		m_playerState = MOVING_RIGHT;
 	}
 
-	//Jump if lockjump is false and key (W) is pressed
+	/* Jump if jump is allowed and the player presses the jump key(W) */
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) && !m_lockjump)
 	{
-		m_velocity.y = -8;
+		m_velocity.y = JUMPVELOCITY;
 		m_lockjump = true;   //Player not allowed to jump
 		m_jumping = true;
 	}
@@ -281,13 +284,8 @@ void Player::updateMovement()
 
 void Player::updatePhysics()
 {
-	/*
-	* Limits velocity if max velocity in y direction is attained
-	* Enforces drag in x direction
-	* Stops the player if min velocity is attained in x direction 
-	*/
+	/* Limit velocity, apply drag, and stop the player if min velocity is reached */
 
-	//Limit velocity
 	if (std::abs(m_velocity.x) >= m_velocityMaxX)
 		m_velocity.x = m_velocityMaxX * ((m_velocity.x < 0) ? -1 : 1);
 
@@ -302,13 +300,7 @@ void Player::updatePhysics()
 
 void Player::updateMiscellaneousItems()
 {
-	/*
-	* Checks player's interation with health fill up station
-	* Sets player health to maximum if player successfully interacts (intersects with health fill up tile + presses S) 
-	* Checks player's interation with increase max health widget
-	* Increases player's max health by 3 units if player successfully interacts with the widget
-	* Saves player's progress if player interacts with save disk widget
-	*/
+	/* Check interactions with health fill up station, increase max health widget, and save disk widget */
 
 	if (Tilemap::healthFillUpStationTile.intersects(m_hitbox))
 	{
@@ -339,7 +331,6 @@ void Player::updateMiscellaneousItems()
 	}	
 }
 
-//Public Functions
 void Player::update()
 {
 	/*

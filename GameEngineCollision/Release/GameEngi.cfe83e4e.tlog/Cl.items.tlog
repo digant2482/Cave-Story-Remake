@@ -4,9 +4,9 @@ C:\Dev\GameEngineCollision\GameEngineCollision\Critter.cpp;C:\Dev\GameEngineColl
 C:\Dev\GameEngineCollision\GameEngineCollision\CritterAnimation.cpp;C:\Dev\GameEngineCollision\GameEngineCollision\Release\CritterAnimation.obj
 C:\Dev\GameEngineCollision\GameEngineCollision\Game.cpp;C:\Dev\GameEngineCollision\GameEngineCollision\Release\Game.obj
 C:\Dev\GameEngineCollision\GameEngineCollision\Gun.cpp;C:\Dev\GameEngineCollision\GameEngineCollision\Release\Gun.obj
-C:\Dev\GameEngineCollision\GameEngineCollision\HealthUp.cpp;C:\Dev\GameEngineCollision\GameEngineCollision\Release\HealthUp.obj
+C:\Dev\GameEngineCollision\GameEngineCollision\HealthUpHeart.cpp;C:\Dev\GameEngineCollision\GameEngineCollision\Release\HealthUpHeart.obj
 C:\Dev\GameEngineCollision\GameEngineCollision\HUD.cpp;C:\Dev\GameEngineCollision\GameEngineCollision\Release\HUD.obj
-C:\Dev\GameEngineCollision\GameEngineCollision\GunLevelPoints.cpp;C:\Dev\GameEngineCollision\GameEngineCollision\Release\GunLevelPoints.obj
+C:\Dev\GameEngineCollision\GameEngineCollision\GunLevelPointsTriangle.cpp;C:\Dev\GameEngineCollision\GameEngineCollision\Release\GunLevelPointsTriangle.obj
 C:\Dev\GameEngineCollision\GameEngineCollision\main.cpp;C:\Dev\GameEngineCollision\GameEngineCollision\Release\main.obj
 C:\Dev\GameEngineCollision\GameEngineCollision\Player.cpp;C:\Dev\GameEngineCollision\GameEngineCollision\Release\Player.obj
 C:\Dev\GameEngineCollision\GameEngineCollision\PlayerAnimation.cpp;C:\Dev\GameEngineCollision\GameEngineCollision\Release\PlayerAnimation.obj

@@ -153,9 +153,9 @@
     <ClCompile Include="CritterAnimation.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Gun.cpp" />
-    <ClCompile Include="HealthUp.cpp" />
+    <ClCompile Include="HealthUpHeart.cpp" />
     <ClCompile Include="HUD.cpp" />
-    <ClCompile Include="GunLevelPoints.cpp" />
+    <ClCompile Include="GunLevelPointsTriangle.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PlayerAnimation.cpp" />
@@ -176,9 +176,9 @@
     <ClInclude Include="CritterAnimation.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Gun.h" />
-    <ClInclude Include="HealthUp.h" />
+    <ClInclude Include="HealthUpHeart.h" />
     <ClInclude Include="HUD.h" />
-    <ClInclude Include="GunLevelPoints.h" />
+    <ClInclude Include="GunLevelPointsTriangle.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="PlayerAnimation.h" />
     <ClInclude Include="stdafx.h" />

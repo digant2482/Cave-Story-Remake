@@ -41,16 +41,19 @@ PlayerAnimation::PlayerAnimation()
 
 const sf::IntRect PlayerAnimation::getIdleRightTexture()
 {
+	/* Returns IntRect (to be snipped from spritesheet) of idle right facing player */
 	return sf::IntRect(0, 32, 32, 32);
 }
 
 const sf::IntRect PlayerAnimation::getIdleLeftTexture()
 {
+	/* Returns IntRect of idle left facing player */
 	return sf::IntRect(0, 0, 32, 32);
 }
 
 const sf::IntRect PlayerAnimation::getRunLeftTexture()
 {
+	/* Returns IntRect of running left facing player */
 	m_runLeft.left += 32;
 	if (m_runLeft.left >= 64)
 		m_runLeft.left = 0;
@@ -59,6 +62,7 @@ const sf::IntRect PlayerAnimation::getRunLeftTexture()
 
 const sf::IntRect PlayerAnimation::getRunRightTexture()
 {
+	/* Returns IntRect of running right facing player */
 	m_runRight.left += 32;
 	if (m_runRight.left >= 64)
 		m_runRight.left = 0;
@@ -68,8 +72,11 @@ const sf::IntRect PlayerAnimation::getRunRightTexture()
 //Modifiers
 void PlayerAnimation::setRevivalState(const bool state)
 {
+	/* Sets player's revival state
+	 * Starts the revival state timer if player is hit */
+
 	m_revivalState = state;
-	//Start the revival state timer if player if hit
+
 	if (m_revivalState)
 	{
 		m_revivalStateTimer.restart();
@@ -80,11 +87,13 @@ void PlayerAnimation::setRevivalState(const bool state)
 //Accessors
 const bool& PlayerAnimation::isFacingRight() const
 {
+	/* Returns player's orientation */
 	return m_facingRight;
 }
 
 const bool& PlayerAnimation::isRevivalStateActive() const
 {
+	/* Returns player's revival state */
 	return m_revivalState;
 }
 
@@ -92,13 +101,18 @@ const bool& PlayerAnimation::isRevivalStateActive() const
 
 void PlayerAnimation::updateRevivalState()
 {
-	//Set revival state to false after revival period (3 seconds)
+	/* Sets revival state to false after revival period (3 seconds) */
 	if (m_revivalState && m_revivalStateTimer.getElapsedTime().asSeconds() >= 3.f)
 		m_revivalState = false;
 }
 
 void PlayerAnimation::updatePlayerAnimation()
 {
+	/* Selects the currentFrame (Texture rectangle to be snipped from spritesheet) according to player's moving state 
+	 * Animation timer is used to delay rendering a new state for around 0.1 seconds (to make animation smoother)
+	 * When switching state, the animation timer is ignored by comparing with previous player state (again to make animation smoother)
+	 */
+
 	if (m_playerState == IDLE)
 	{
 		//If animation is switched from moving to idle, timer is ignored
@@ -134,13 +148,14 @@ void PlayerAnimation::updatePlayerAnimation()
 
 void PlayerAnimation::renderPlayerAnimation(sf::RenderTarget* target, sf::FloatRect& playerHitbox)
 {
+	/* Renders player's sprite */
 	m_spriteSheet.setPosition(playerHitbox.left - 10, playerHitbox.top);
 	m_previousPlayerState = m_playerState;
 	m_spriteSheet.setTextureRect(m_currentFrame);
 
-	/*Two types of rendering:
+	/* Two types of rendering:
 	a) The player is not hit (Normal rendering)
-	b) The player is hit    (Jittery rendering)*/
+	b) The player is hit    (Jittery rendering) */
 	if (!m_revivalState || (m_revivalState && m_revivalAnimationTimer.getElapsedTime().asSeconds() > 0.1f))
 	{
 		target->draw(m_spriteSheet);

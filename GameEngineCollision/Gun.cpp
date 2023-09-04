@@ -3,13 +3,18 @@
 
 void Gun::initSprite()
 {
+	/* Loads bullet's and gun's texture from file
+	*  Loads bullet's and gun's texture into spritesheet
+	*  Sets texture rectangle of gun (for right and left direction)
+	*/
+
 	if (!m_gunTexture.loadFromFile("Textures/Weapons/NpcSym.bmp"))
 		std::cout << "ERROR::GUN::INITSPRITE::FAILED TO LOAD GUN" << '\n';
 	m_gunSpriteSheet.setTexture(m_gunTexture);
 	m_gunSpriteSheet.scale(1.75f, 1.75f);
 
-	//Texture square of bulletSpriteSheet
-	m_gunLeft = sf::IntRect(189, 163, 9, 3);
+	//Texture rectangle for gun facing right and left direction
+	m_gunLeft  = sf::IntRect(189, 163, 9, 3);
 	m_gunRight = sf::IntRect(186, 179, 9, 3);
 
 	if (!m_bulletTexture.loadFromFile("Textures/Weapons/Bullet.bmp"))
@@ -19,25 +24,29 @@ void Gun::initSprite()
 
 void Gun::initGunLevel()
 {
+	/* Initializes gun's level and gun's level points */
 	m_gunLevel = 1;
 	m_gunLevelPoints = 0;
 }
 
 void Gun::initVariables()
 {
+	/* Initializes bullet velocity and LSHIFT key (LSHIFT key is used to fire gun)*/
 	m_bulletVelocity = 2.5f;
 	m_heldLSHIFT = false;
 }
 
 void Gun::initLevelTextureRect()
 {
-	m_level1Rect = sf::IntRect(128, 38, 16, 3);
-	m_level2Rect = sf::IntRect(160, 36, 16, 6);
-	m_level3Rect = sf::IntRect(32, 38, 16, 6);
+	/* Initializes bullet's texture rectangle */
+	m_bulletLevel1Rect = sf::IntRect(128, 38, 16, 3);
+	m_bulletLevel2Rect = sf::IntRect(160, 36, 16, 6);
+	m_bulletLevel3Rect = sf::IntRect(32, 38, 16, 6);
 }
 
 Gun::Gun()
 {
+	/* Calls the initializers */
 	initGunLevel();
 	initSprite();
 	initVariables();
@@ -47,12 +56,13 @@ Gun::Gun()
 
 void Gun::updateGunLevelPoints()
 {
-	//Change gun level if points are greater than or equal to 15
+	/* Updates gun's level points 
+	*  Updates gun's level is gun's level points is more than 5 */
 	if (m_gunLevelPoints >= 5)
 	{
 		if (m_gunLevel != 3)
 		{
-			//Clear bullets of previous level
+			//Clear bullets of previous level (Free memory)
 			if (m_gunLevel == 1)
 				m_bulletsLev1.clear();
 			else if (m_gunLevel == 2)
@@ -64,15 +74,17 @@ void Gun::updateGunLevelPoints()
 		}
 		else
 		{
-			//reset points to max points
-			m_gunLevelPoints = 15;
+			//Reset points to max points
+			m_gunLevelPoints = 5;
 		}
 	}
 }
 
 void Gun::updateGunPosition(Player& player)
 {
-	//Sets gun's position according to player's position
+	/* Updates gun's position according to player's position 
+	*  Updates gun's texture rectangle according to gun's orientation
+	*/
 	m_gunSpriteSheet.setPosition(player.getPosition().x, player.getPosition().y);
 	if (player.isFacingRight())
 	{
@@ -88,6 +100,12 @@ void Gun::updateGunPosition(Player& player)
 
 void Gun::updateFire(Player& player)
 {
+	/* Evaluates fire direction using player's orientation 
+	*  Fires a bullet is LSHIFT key is not pressed
+	*  Appends in the bullet in relevant bullet array
+	*  Sets m_heldLSHIFT to true 
+	*/
+
 	int fireDirection = player.isFacingRight() ? 1 : -1;
 	if (!m_heldLSHIFT)
 	{
@@ -124,7 +142,10 @@ void Gun::updateFire(Player& player)
 //Bullet Collisions
 bool Gun::bulletWallCollision(const sf::FloatRect& bulletBounds, int x, int y)
 {
-	//Find y co-ordinate of colliding tile (in pixels)
+	/* Checks bullet's collision with the walls in x-axis
+	*  This function is taken from wall collision class' verticalCollision function
+	*/
+
 	int tileYpixels = y - (y % TILESIZE);
 	int testEnd = y + bulletBounds.height;
 
@@ -146,17 +167,24 @@ bool Gun::bulletWallCollision(const sf::FloatRect& bulletBounds, int x, int y)
 
 bool Gun::bulletBatCollision(const sf::FloatRect& bulletBounds, std::vector<std::unique_ptr<Bat>>& batArray)
 {
+	/* Checks if bullet kills the bat 
+	*  Loops through all the bats and checks if the bullet hit (intersects) the bat's bounds
+	*  If any bat is hit, bat is erased and reward widget is created at the position of bat's death
+	*  Reward widget (HealthUpHeart, GunLevelPointsTriangle is randomly selected using srand function
+	*  @return true if bat is hit else false
+	*/
+
 	for (int j = 0; j < batArray.size(); j++)
 	{
-		//If player hit the enemy, delete the bullet as well as enemy
+		//If player hits the enemy, delete the enemy
 		if (bulletBounds.intersects(batArray[j]->getBounds()))
 		{
 			//33% chance for health up reward and 67% chance for gun level points reward
 			int selector = rand() % 2;
 			if (selector == 2)
-				m_healthUpArray.emplace_back(HealthUp(batArray[j]->getBounds().getPosition()));
+				m_healthUpArray.emplace_back(HealthUpHeart(batArray[j]->getBounds().getPosition()));
 			else
-				m_gunLevelPointsArray.emplace_back(GunLevelPoints(batArray[j]->getBounds().getPosition()));
+				m_gunLevelPointsArray.emplace_back(GunLevelPointsTriangle(batArray[j]->getBounds().getPosition()));
 
 			batArray.erase(batArray.begin() + j);
 			return true;
@@ -167,10 +195,16 @@ bool Gun::bulletBatCollision(const sf::FloatRect& bulletBounds, std::vector<std:
 }
 bool Gun::bulletCritterCollision(const sf::FloatRect& bulletBounds, std::vector<std::unique_ptr<Critter>>& critterArray)
 {
-	//Check if the player hit any critter
+	/* Checks if bullet kills the critter
+	*  Loops through all the critters and checks if the bullet hit (intersects) the critter's bounds
+	*  If any critter is hit, critter's health is decreased by 1 unit
+	*  Reward widget is created at the position of critter's death if critter dies (health reaches zero)
+	*  Reward widget (HealthUpHeart, GunLevelPointsTriangle is randomly selected using srand function
+	*  @return true if critter is hit else false
+	*/
 	for (int j = 0; j < critterArray.size(); j++)
 	{
-		//If player hit the enemy, delete the bullet as well as enemy
+		//If player hit the enemy, delete the enemy
 		if (bulletBounds.intersects(critterArray[j]->getBounds()))
 		{
 			//If critter's health is zero, delete critter
@@ -179,11 +213,11 @@ bool Gun::bulletCritterCollision(const sf::FloatRect& bulletBounds, std::vector<
 				//33% chance for health up reward and 67% chance for gun level points reward
 				int selector = rand() % 2;
 				if (selector == 2)
-					m_healthUpArray.emplace_back(HealthUp(critterArray[j]->getBounds().getPosition()));
+					m_healthUpArray.emplace_back(HealthUpHeart(critterArray[j]->getBounds().getPosition()));
 				else
 				{
-					m_gunLevelPointsArray.emplace_back(GunLevelPoints(critterArray[j]->getBounds().getPosition()));
-					m_gunLevelPointsArray.emplace_back(GunLevelPoints(critterArray[j]->getBounds().getPosition()));
+					m_gunLevelPointsArray.emplace_back(GunLevelPointsTriangle(critterArray[j]->getBounds().getPosition()));
+					m_gunLevelPointsArray.emplace_back(GunLevelPointsTriangle(critterArray[j]->getBounds().getPosition()));
 				}
 				critterArray.erase(critterArray.begin() + j);
 			}
@@ -196,10 +230,10 @@ bool Gun::bulletCritterCollision(const sf::FloatRect& bulletBounds, std::vector<
 void Gun::updateBulletPositionAndCollision(std::vector<std::unique_ptr<Bat>>& batArray, std::vector<std::unique_ptr<Critter>>& critterArray)
 {
 	/*
-	- Updates bullet position
-	- Deletes bullet out of range
-	- Deletes bullet colliding with wall
-	- Deletes bullet that hit the enemy, also deletes the enemy
+	* Updates bullet's position (distance travelled)
+	* Deletes bullet if out of range (distance travelled greater than range)
+	* Deletes bullet if colliding with wall
+	* Deletes bullet that hits the enemy
 	*/
 
 	if (m_gunLevel == 1)
@@ -302,6 +336,11 @@ void Gun::updateBulletPositionAndCollision(std::vector<std::unique_ptr<Bat>>& ba
 
 void Gun::updatePlayerRewards(Player& player)
 {
+	/* Updates player's rewards 
+	 * Increases the health by 1 unit if player collects (intersects with reward's bounds) the health reward
+	 * Increases gun level points by 1 unit if player collects (intersects with reward's bounds) the gun level points reward
+	 */
+
 	int i = 0;
 	while (i < m_healthUpArray.size())
 	{
@@ -329,17 +368,27 @@ void Gun::updatePlayerRewards(Player& player)
 
 void Gun::updateFiringKey()
 {
+	/* Sets m_heldLSHIFT to false if LSHIFT key is released */
 	if (!sf::Keyboard::isKeyPressed(sf::Keyboard::LShift))
 		m_heldLSHIFT = false;
 }
+
 //Accessors
 const std::pair<int, int> Gun::getGunLevelInfo() const
 {
+	/*@return Gun level points and gun level */
 	return std::make_pair(m_gunLevelPoints, m_gunLevel);
 }
 
 void Gun::update(Player& player, std::vector<std::unique_ptr<Bat>>& batArray,
 						std::vector<std::unique_ptr<Critter>>& critterArray)
+
+	/* Updates gun position (relative to player's position) 
+	*  Updates fire (fires if player has pressed LSHIFT key)
+	*  Updates firing key (LSHIFT key), sets m_heldLSHIFT to false if the key is released
+	*  Updates bullets position and collision (with wall or enemy)
+	*  Updates player rewards (Increase player health or increase gun level points)
+	*/
 {
 	updateGunPosition(player);
 	updateFire(player);
@@ -350,14 +399,16 @@ void Gun::update(Player& player, std::vector<std::unique_ptr<Bat>>& batArray,
 
 void Gun::renderGun(sf::RenderTarget* target)
 {
+	/* Renders gun */
 	target->draw(m_gunSpriteSheet);
 }
 
 void Gun::renderBullets(sf::RenderTarget* target)
 {
+	/* Renders bullet according to it's level */
 	if (m_gunLevel == 1)
 	{
-		m_bulletSpriteSheet.setTextureRect(m_level1Rect);
+		m_bulletSpriteSheet.setTextureRect(m_bulletLevel1Rect);
 		for (auto& bullet : m_bulletsLev1)
 		{
 			m_bulletSpriteSheet.setPosition(bullet.bulletBounds.getPosition());
@@ -366,7 +417,7 @@ void Gun::renderBullets(sf::RenderTarget* target)
 	}
 	else if (m_gunLevel == 2)
 	{
-		m_bulletSpriteSheet.setTextureRect(m_level2Rect);
+		m_bulletSpriteSheet.setTextureRect(m_bulletLevel2Rect);
 		for (auto& bullet : m_bulletsLev2)
 		{
 			m_bulletSpriteSheet.setPosition(bullet.bulletBounds.getPosition());
@@ -375,7 +426,7 @@ void Gun::renderBullets(sf::RenderTarget* target)
 	}
 	else
 	{
-		m_bulletSpriteSheet.setTextureRect(m_level3Rect);
+		m_bulletSpriteSheet.setTextureRect(m_bulletLevel3Rect);
 		for (auto& bullet : m_bulletsLev3)
 		{
 			m_bulletSpriteSheet.setPosition(bullet.bulletBounds.getPosition());
@@ -386,6 +437,7 @@ void Gun::renderBullets(sf::RenderTarget* target)
 
 void Gun::renderRewards(sf::RenderTarget* target)
 {
+	/* Renders player's reward HealthUpHeart and GunLevelPointTriangle*/
 	for (auto& healthUp : m_healthUpArray)
 	{
 		healthUp.render(target);
@@ -398,6 +450,7 @@ void Gun::renderRewards(sf::RenderTarget* target)
 
 void Gun::render(sf::RenderTarget* target)
 {
+	/* Call rendering functions */
 	renderBullets(target);
 	renderGun(target);
 	renderRewards(target);

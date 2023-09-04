@@ -4,20 +4,23 @@
 //Initializers
 void CritterAnimation::initSprite()
 {
+	/* Loads texture and sets texture to the spritesheet */
 	if (!m_textureSheet.loadFromFile("Textures/Enemies/Enemies Sprite.png"))
 		std::cout << "ERROR::ENEMIES::CRITTER::INITSPRITE::FAILED TO LOAD TEXTURE" << '\n';
-	m_sprite.setTexture(m_textureSheet);
-	m_sprite.setScale(2.0f, 2.0f);
+	m_spriteSheet.setTexture(m_textureSheet);
+	m_spriteSheet.setScale(2.0f, 2.0f);
 }
 
 void CritterAnimation::initVariables()
 {
+	/* Initializes critter's state and resets animation timer */
 	m_critterState = CritterState::IDLE;
 	m_animationTimer.restart();
 }
 
 void CritterAnimation::initStates()
 {
+	/* Assigns texture rectangle's dimensions and co-ordinates */
 	m_idleRightTexture      = sf::IntRect(319, 191, 16, 16);
 	m_idleLeftTexture       = sf::IntRect(319, 175, 16, 16);
 	m_noticingRightTexture  = sf::IntRect(335, 191, 16, 16);
@@ -37,6 +40,7 @@ CritterAnimation::CritterAnimation()
 //Functions
 void CritterAnimation::updateCritterAnimation(bool& facingRight)
 {
+	/* Sets current frame (texture rectangle to be snipped from spritesheet) */
 	if (m_animationTimer.getElapsedTime().asSeconds() >= 0.2f)
 	{
 		if (m_critterState == CritterState::IDLE)
@@ -66,7 +70,8 @@ void CritterAnimation::updateCritterAnimation(bool& facingRight)
 
 void CritterAnimation::renderCritterAnimation(sf::RenderTarget* target, const sf::FloatRect& critterHitbox)
 {
-	m_sprite.setPosition(critterHitbox.left + 6.f, critterHitbox.top);
-	m_sprite.setTextureRect(m_currentFrame);
-	target->draw(m_sprite);
+	/* Render the critter animation using its current frame and position */
+	m_spriteSheet.setPosition(critterHitbox.left + 6.f, critterHitbox.top);
+	m_spriteSheet.setTextureRect(m_currentFrame);
+	target->draw(m_spriteSheet);
 }

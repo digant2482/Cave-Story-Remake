@@ -58,6 +58,12 @@
     <Filter Include="Source Files\Rewards">
       <UniqueIdentifier>{20a34b9d-5a91-4bda-815a-a2aef289b029}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Rewards\GunLevelPointsTriangle">
+      <UniqueIdentifier>{b5fd76df-1244-48bc-b5bd-7370ce583fb5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Rewards\HealthUpHeart">
+      <UniqueIdentifier>{69d29cad-4c2f-4af1-99a2-5d8fac444953}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game.cpp">
@@ -99,11 +105,11 @@
     <ClCompile Include="AnimatedTiles.cpp">
       <Filter>Source Files\Tilemap\AnimatedTiles</Filter>
     </ClCompile>
-    <ClCompile Include="HealthUp.cpp">
-      <Filter>Source Files\Rewards</Filter>
+    <ClCompile Include="GunLevelPointsTriangle.cpp">
+      <Filter>Source Files\Rewards\GunLevelPointsTriangle</Filter>
     </ClCompile>
-    <ClCompile Include="GunLevelPoints.cpp">
-      <Filter>Source Files\Rewards</Filter>
+    <ClCompile Include="HealthUpHeart.cpp">
+      <Filter>Source Files\Rewards\HealthUpHeart</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -146,11 +152,11 @@
     <ClInclude Include="AnimatedTiles.h">
       <Filter>Source Files\Tilemap\AnimatedTiles</Filter>
     </ClInclude>
-    <ClInclude Include="HealthUp.h">
-      <Filter>Source Files\Rewards</Filter>
+    <ClInclude Include="GunLevelPointsTriangle.h">
+      <Filter>Source Files\Rewards\GunLevelPointsTriangle</Filter>
     </ClInclude>
-    <ClInclude Include="GunLevelPoints.h">
-      <Filter>Source Files\Rewards</Filter>
+    <ClInclude Include="HealthUpHeart.h">
+      <Filter>Source Files\Rewards\HealthUpHeart</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

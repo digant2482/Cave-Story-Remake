@@ -4,7 +4,7 @@ class Bat
 {
 private:
 	sf::Texture m_texture;
-	sf::Sprite m_sprite;
+	sf::Sprite m_spriteSheet;
 
 	//Animation
 	sf::IntRect m_currentFrame;
@@ -29,11 +29,7 @@ private:
 
 	void updateAnimation();
 public:
-	Bat();
 	Bat(const float x, const float y);
-
-	//Modifiers
-	void setPosition(const float x, const float y);
 
 	//Accessors
 	const sf::FloatRect getBounds() const;

@@ -9,35 +9,45 @@ private:
 	sf::Texture m_texture;
 	sf::Sprite m_spriteSheet;
 
-	//Health and Gun Variables
+	//Current health and current gun level
 	int m_currentHealth;
 	int m_currentGunLevel;
-	float m_currentBarWidthMax;
-	float m_currentBarHeight;
 
-	//Elements
+	//Bars
 	sf::IntRect m_healthBarBackground;
-	sf::RectangleShape m_currentHealthBar;
 	sf::IntRect m_gunLevelBarBackground;
+	sf::RectangleShape m_currentHealthBar;
 	sf::RectangleShape m_currentGunLevelBar;
+	float m_maxBarWidth;
+	float m_barHeight;
+
+	//Numbers
 	sf::IntRect m_healthNumber;
 	sf::IntRect m_gunLevelNumber;
+
+	//Text
 	sf::IntRect m_textLV;
 
 	//Element's positions
+	//Bars
 	sf::Vector2f m_healthBarBackgroundPos;
 	sf::Vector2f m_gunLevelBarBackgroundPos;
+
+	//Numbers
 	sf::Vector2f m_healthNumberPos;
 	sf::Vector2f m_gunLevelNumberPos;
+
+	//Text
 	sf::Vector2f m_textLVPos;
 
 	void initSprite();
-	void initVariables();
-	void initElements();
-	void initElementPositions();
+	void initBars();
+	void initNumbers();
+	void initText();
+	void initPositions();
 
-	void setCurrentBars(Player& player, Gun& gun);
-	void setText();
+	void updateCurrentBars(Player& player, Gun& gun);
+	void updateText();
 public:
 	HUD();
 

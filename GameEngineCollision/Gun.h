@@ -3,8 +3,8 @@
 #include "Player.h"
 #include "Bat.h"
 #include "Critter.h"
-#include "GunLevelPoints.h"
-#include "HealthUp.h"
+#include "GunLevelPointsTriangle.h"
+#include "HealthUpHeart.h"
 
 class Gun
 {
@@ -33,13 +33,13 @@ private:
 	bool m_heldLSHIFT;
 
 	//Enemy Kill Rewards
-	std::vector<HealthUp> m_healthUpArray;
-	std::vector<GunLevelPoints> m_gunLevelPointsArray;
+	std::vector<HealthUpHeart> m_healthUpArray;
+	std::vector<GunLevelPointsTriangle> m_gunLevelPointsArray;
 
 	//Level texture rect
-	sf::IntRect m_level1Rect;
-	sf::IntRect m_level2Rect;
-	sf::IntRect m_level3Rect;
+	sf::IntRect m_bulletLevel1Rect;
+	sf::IntRect m_bulletLevel2Rect;
+	sf::IntRect m_bulletLevel3Rect;
 
 	//Initializers
 	void initSprite();

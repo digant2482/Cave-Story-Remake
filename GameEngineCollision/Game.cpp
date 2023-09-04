@@ -19,10 +19,8 @@ void Game::initPlayer()
 void Game::initEnemies()
 {
 	/* Instantiates enemies */
-	m_batArray.emplace_back(std::make_unique<Bat>());
-	m_batArray[0]->setPosition(360, 280);
-	m_critterArray.emplace_back(std::make_unique<Critter>());
-	m_critterArray[0]->setPosition(400, 400);
+	m_batArray.emplace_back(std::make_unique<Bat>(360, 280));
+	m_critterArray.emplace_back(std::make_unique<Critter>(400, 400));
 }
 
 //Constructor / Destructor
