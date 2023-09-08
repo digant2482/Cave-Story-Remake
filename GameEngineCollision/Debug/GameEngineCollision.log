@@ -1,4 +1,58 @@
-﻿  Tilemap.cpp
+﻿  Game.cpp
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\include\memory(3477,56): warning C4244: 'argument': conversion from '_Ty' to 'const float', possible loss of data
+          with
+          [
+              _Ty=int
+          ]
+C:\Dev\GameEngineCollision\GameEngineCollision\Game.cpp(94,31): message : see reference to function template instantiation 'std::unique_ptr<Bat,std::default_delete<Bat>> std::make_unique<Bat,int,int,0>(int &&,int &&)' being compiled
+  Gun.cpp
+C:\Dev\GameEngineCollision\GameEngineCollision\Gun.cpp(157,14): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Dev\GameEngineCollision\GameEngineCollision\Gun.cpp(184,20): warning C4018: '<': signed/unsigned mismatch
+C:\Dev\GameEngineCollision\GameEngineCollision\Gun.cpp(213,20): warning C4018: '<': signed/unsigned mismatch
+C:\Dev\GameEngineCollision\GameEngineCollision\Gun.cpp(251,12): warning C4018: '<': signed/unsigned mismatch
+C:\Dev\GameEngineCollision\GameEngineCollision\Gun.cpp(257,32): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
+C:\Dev\GameEngineCollision\GameEngineCollision\Gun.cpp(264,99): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Dev\GameEngineCollision\GameEngineCollision\Gun.cpp(264,65): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Dev\GameEngineCollision\GameEngineCollision\Gun.cpp(283,12): warning C4018: '<': signed/unsigned mismatch
+C:\Dev\GameEngineCollision\GameEngineCollision\Gun.cpp(289,32): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
+C:\Dev\GameEngineCollision\GameEngineCollision\Gun.cpp(296,99): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Dev\GameEngineCollision\GameEngineCollision\Gun.cpp(296,65): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Dev\GameEngineCollision\GameEngineCollision\Gun.cpp(315,12): warning C4018: '<': signed/unsigned mismatch
+C:\Dev\GameEngineCollision\GameEngineCollision\Gun.cpp(321,32): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
+C:\Dev\GameEngineCollision\GameEngineCollision\Gun.cpp(328,99): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Dev\GameEngineCollision\GameEngineCollision\Gun.cpp(328,65): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Dev\GameEngineCollision\GameEngineCollision\Gun.cpp(354,11): warning C4018: '<': signed/unsigned mismatch
+C:\Dev\GameEngineCollision\GameEngineCollision\Gun.cpp(366,11): warning C4018: '<': signed/unsigned mismatch
+  Tilemap.cpp
+  Generating Code...
 sfml-graphics-s-d.lib(BlendMode.obj) : warning LNK4099: PDB '' was not found with 'sfml-graphics-s-d.lib(BlendMode.obj)' or at ''; linking object as if no debug info
 sfml-graphics-s-d.lib(Color.obj) : warning LNK4099: PDB '' was not found with 'sfml-graphics-s-d.lib(Color.obj)' or at ''; linking object as if no debug info
 sfml-graphics-s-d.lib(Glsl.obj) : warning LNK4099: PDB '' was not found with 'sfml-graphics-s-d.lib(Glsl.obj)' or at ''; linking object as if no debug info

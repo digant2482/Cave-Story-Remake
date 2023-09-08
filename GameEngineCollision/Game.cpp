@@ -411,7 +411,6 @@ bool Game::gameUpdateStartMenu()
 			return true;
 		else
 		{
-			std::cout << "here" << '\n';
 			loadSavedProgress();
 			return true;
 		}

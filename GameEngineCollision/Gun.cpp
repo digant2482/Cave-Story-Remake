@@ -67,10 +67,8 @@ void Gun::updateGunLevelPoints()
 	*  Updates gun's level is gun's level points is more than 5 */
 	if (m_gunLevelPoints >= 5)
 	{
-		std::cout << "here" << "\n";
 		if (m_gunLevel != 3)
 		{
-			std::cout << "hesdsdvre" << "\n";
 			//Clear bullets of previous level (Free memory)
 			if (m_gunLevel == 1)
 				m_bulletsLev1.clear();
@@ -202,6 +200,7 @@ bool Gun::bulletBatCollision(const sf::FloatRect& bulletBounds, std::vector<std:
 	//Return false if no intersection found
 	return false;
 }
+
 bool Gun::bulletCritterCollision(const sf::FloatRect& bulletBounds, std::vector<std::unique_ptr<Critter>>& critterArray)
 {
 	/* Checks if bullet kills the critter
@@ -236,6 +235,7 @@ bool Gun::bulletCritterCollision(const sf::FloatRect& bulletBounds, std::vector<
 	//Return false if no intersection is found
 	return false;
 }
+
 void Gun::updateBulletPositionAndCollision(std::vector<std::unique_ptr<Bat>>& batArray, std::vector<std::unique_ptr<Critter>>& critterArray)
 {
 	/*
