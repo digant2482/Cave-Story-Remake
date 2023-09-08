@@ -21,6 +21,8 @@ Cave story is 2-D platformer, where the protagonist is tasked to kill the enemie
   - All the dependencies are within this repository
   - You need to add paths to the library and include files in the Visual Studio setting, use the following link : (https://www.sfml-dev.org/tutorials/2.6/start-vc.php)
   - You also need to add the following libraries sfml-graphics-s.lib, sfml-window-s.lib, sfml-system-s.lib, opengl32.lib, freetype.lib, winmm.lib
-  - In some libraries if you want to use debug libraries add -d as a suffix in SFML libraries mentioned in point 9
   - Make sure to select the x86 32-bit application
   - That's it, enjoy the game
+ 
+- Libraries/Dependencies used:
+  - SFML framework is used for rendering 
