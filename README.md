@@ -2,7 +2,7 @@
 Cave story is 2-D platformer, where the protagonist is tasked to kill the enemies at each level
 
 * Code:
-* The code is designed and written by me
+** The code is designed and written by me
 
 * Graphics:
 * Graphics are taken from various sources particularly cavestory.org
