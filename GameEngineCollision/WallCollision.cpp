@@ -1,8 +1,5 @@
 #include "stdafx.h"
 #include "WallCollision.h"
-#include "Tilemap.h"
-
-#define TILESIZE 40
 
 bool WallCollision::collisionSlope(sf::FloatRect& hitbox, int sx, int sy, int& tsx, int& tsy)
 {

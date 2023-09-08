@@ -53,6 +53,13 @@ Gun::Gun()
 	initLevelTextureRect();
 }
 
+//Modifiers
+void Gun::setGunLevelCurrentPoints(int x)
+{
+	/* Sets current level points of a gun (Used for loading saved progress) */
+	m_gunLevelPoints = x;
+}
+
 
 void Gun::updateGunLevelPoints()
 {
@@ -60,8 +67,10 @@ void Gun::updateGunLevelPoints()
 	*  Updates gun's level is gun's level points is more than 5 */
 	if (m_gunLevelPoints >= 5)
 	{
+		std::cout << "here" << "\n";
 		if (m_gunLevel != 3)
 		{
+			std::cout << "hesdsdvre" << "\n";
 			//Clear bullets of previous level (Free memory)
 			if (m_gunLevel == 1)
 				m_bulletsLev1.clear();
@@ -180,8 +189,8 @@ bool Gun::bulletBatCollision(const sf::FloatRect& bulletBounds, std::vector<std:
 		if (bulletBounds.intersects(batArray[j]->getBounds()))
 		{
 			//33% chance for health up reward and 67% chance for gun level points reward
-			int selector = rand() % 2;
-			if (selector == 2)
+			int selector = rand() % 1;
+			if (selector == 1)
 				m_healthUpArray.emplace_back(HealthUpHeart(batArray[j]->getBounds().getPosition()));
 			else
 				m_gunLevelPointsArray.emplace_back(GunLevelPointsTriangle(batArray[j]->getBounds().getPosition()));
@@ -211,8 +220,8 @@ bool Gun::bulletCritterCollision(const sf::FloatRect& bulletBounds, std::vector<
 			if (!critterArray[j]->updateHealth(-1))
 			{
 				//33% chance for health up reward and 67% chance for gun level points reward
-				int selector = rand() % 2;
-				if (selector == 2)
+				int selector = rand() % 1;
+				if (selector == 1)
 					m_healthUpArray.emplace_back(HealthUpHeart(critterArray[j]->getBounds().getPosition()));
 				else
 				{
@@ -358,7 +367,8 @@ void Gun::updatePlayerRewards(Player& player)
 	{
 		if (m_gunLevelPointsArray[i].getBounds().intersects(player.getHitbox()))
 		{
-			m_gunLevelPoints += 1;
+			if (m_gunLevelPoints < 5)
+				m_gunLevelPoints += 1;
 			m_gunLevelPointsArray.erase(m_gunLevelPointsArray.begin() + i);
 		}
 		else
@@ -395,6 +405,8 @@ void Gun::update(Player& player, std::vector<std::unique_ptr<Bat>>& batArray,
 	updateFiringKey();
 	updateBulletPositionAndCollision(batArray, critterArray);
 	updatePlayerRewards(player);
+	updateGunLevelPoints();
+
 }
 
 void Gun::renderGun(sf::RenderTarget* target)

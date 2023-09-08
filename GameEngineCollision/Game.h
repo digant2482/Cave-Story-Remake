@@ -17,7 +17,24 @@ private:
 	HUD m_hud;
 
 	//Tilemap
-	Tilemap m_tilemap;  //Only to intialize tilemap
+	Tilemap m_tilemap;  
+
+	//Level
+	int m_currentLevel; //Current level of the game (1-6)
+
+	//Start Menu
+	sf::Texture m_startMenuLoadGameTexture;
+	sf::Texture m_startMenuNewGameTexture;
+	sf::Sprite m_startMenuLoadGameSprite;
+	sf::Sprite m_startMenuNewGameSprite;
+	bool m_newGame;
+	sf::Clock m_startMenuSwitchTimer;
+
+	//Pause menu
+	sf::Texture m_pauseMenuTexture;
+	sf::Sprite m_pauseMenuSprite;
+	bool m_pauseWindow; 
+	sf::Clock m_pauseWindowTimer;
 
 	//Player
 	Player m_player;
@@ -32,14 +49,31 @@ private:
 
 	//Initializers
 	void initWindow();
-	void initPlayer();
-	void initEnemies();
+	void initStartMenu();
+	void initPauseMenu();
 
 	//Updates Game
 	void windowPollEvents();
 
+	bool gameUpdateStartMenu();
+	void gameRenderStartMenu();
 	void gameUpdate();
 	void gameRender();
+	void gameUpdatePauseMenu();
+	void gameRenderPauseMenu();
+
+	//Levels
+	void loadLevel1();
+	void loadLevel2();
+	void loadLevel3();
+	void loadLevel4();
+	void loadLevel5();
+	void loadLevel6();
+	void loadSavedProgress();
+
+	void saveProgress();
+	void exitLevel();
+
 public:
 	Game();
 	~Game();

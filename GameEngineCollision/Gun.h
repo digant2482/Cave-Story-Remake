@@ -1,10 +1,12 @@
 #pragma once
+#include "Tilemap.h"
 #include "Bullet.h"
 #include "Player.h"
 #include "Bat.h"
 #include "Critter.h"
 #include "GunLevelPointsTriangle.h"
 #include "HealthUpHeart.h"
+
 
 class Gun
 {
@@ -64,6 +66,9 @@ private:
 	void renderRewards(sf::RenderTarget* target);
 public:
 	Gun();
+
+	//Modifiers
+	void setGunLevelCurrentPoints(int x);
 
 	//Accessors
 	const std::pair<int, int> getGunLevelInfo() const;

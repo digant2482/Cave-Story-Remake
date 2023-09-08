@@ -24,12 +24,18 @@ private:
 	void initSprite();
 	void initTextureRectangles();
 	void initTilesPositions();
+	void initMaxLevelHealth();
 
 protected:
 	//Constructor
 	AnimatedTiles();
 
+	//Max level health (Maximum health of player in a level)
+	int m_maxLevelHealth;
+
 	//Functions
 	void updateTextureRectangles();
-	void renderAnimatedTiles(sf::RenderTarget* target, Player& player);
+	void renderAnimatedTiles(sf::RenderTarget* target, Player& player, const sf::Vector2f& healthFillUpStationPosition,
+		const sf::Vector2f& saveDiskPosition, const sf::Vector2f& increaseMaxHealthPosition, bool renderHealthFillUp, 
+		bool renderSaveDisk, bool renderMaxLevelHealth);
 };

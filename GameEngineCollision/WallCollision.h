@@ -1,4 +1,6 @@
 #pragma once
+#include "Tilemap.h"
+
 class WallCollision
 {
 protected:

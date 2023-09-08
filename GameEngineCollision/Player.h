@@ -49,6 +49,7 @@ public:
 	//Modifiers
 	void setPosition(const int x, const int y);
 	void updateHP(const int x);                 //Updates player's health
+	void setHealth(const int x, const int y);   //Sets current health and max health 
 
 	//Accessors
 	const sf::Vector2f& getPosition() const;

@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "Player.h"
-#define JUMPVELOCITY -8.f
+#define JUMPVELOCITY -8.5f
 
 //Initializers
 void Player::initHitbox()
@@ -24,7 +24,7 @@ void Player::initHealth()
 void Player::initPhysics()
 {							
 	m_velocityMaxX = 1;				//Terminal velocity in x direction	
-	m_velocityMaxY = 7;				//Terminal velocity in y direction
+	m_velocityMaxY = 8.5f;			//Terminal velocity in y direction
 	m_velocityMin = 1;				//Player stops if velocity falls below this value
 	m_acceleration = 2;				//Acceleration in x direction
 	m_drag = 0.7f;					//Deceleration in x direction
@@ -60,6 +60,15 @@ void Player::updateHP(const int x)
 		m_currentHealth += x;
 }
 
+void Player::setHealth(const int x, const int y)
+{
+	/* Sets current health and max health 
+	*  Used to restore progress when loading a saved game
+	*/
+	m_currentHealth = x;
+	m_maxHealth = y;
+}
+
 //Accessors
 const sf::Vector2f& Player::getPosition() const
 {
@@ -85,6 +94,8 @@ void Player::updateMapCollision()
 	/* The function checks for slope collision first
 	*  If slope collision is not detected, the function checks normal tile collision
 	*/
+
+
 
 	//Check for slopes (only if moving down) 
 	if (m_velocity.y > 0) 
@@ -300,9 +311,9 @@ void Player::updatePhysics()
 
 void Player::updateMiscellaneousItems()
 {
-	/* Check interactions with health fill up station, increase max health widget, and save disk widget */
+	/* Check interactions with health fill up station, increase max health widget */
 
-	if (Tilemap::healthFillUpStationTile.intersects(m_hitbox))
+	if (Tilemap::getHealthFillUpStationTileBounds().intersects(m_hitbox))
 	{
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
 		{
@@ -310,7 +321,7 @@ void Player::updateMiscellaneousItems()
 		}
 	}
 
-	if (Tilemap::increaseMaxHealthTile.intersects(m_hitbox))
+	if (Tilemap::getIncreaseMaxHealthTileBounds().intersects(m_hitbox))
 	{
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
 		{
@@ -321,14 +332,6 @@ void Player::updateMiscellaneousItems()
 			}
 		}
 	}
-
-	if (Tilemap::saveDiskTile.intersects(m_hitbox))
-	{
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
-		{
-			//Add saving logic here 
-		}
-	}	
 }
 
 void Player::update()

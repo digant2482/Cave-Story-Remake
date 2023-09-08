@@ -1,6 +1,5 @@
 #include "stdafx.h"
 #include "AnimatedTiles.h"
-#define MAXLEVEL1HEALTH 6
 
 void AnimatedTiles::initSprite()
 {
@@ -29,12 +28,19 @@ void AnimatedTiles::initTilesPositions()
 	m_animationTimer.restart();
 }
 
+void AnimatedTiles::initMaxLevelHealth()
+{
+	/* Initializes maximum possible health for level 1*/
+	m_maxLevelHealth = 6;
+}
+
 AnimatedTiles::AnimatedTiles()
 {
 	/* Calls initializers */
 	initSprite();
 	initTextureRectangles();
 	initTilesPositions();
+	initMaxLevelHealth();
 }
 
 void AnimatedTiles::updateTextureRectangles()
@@ -57,7 +63,10 @@ void AnimatedTiles::updateTextureRectangles()
 	}
 }
 
-void AnimatedTiles::renderAnimatedTiles(sf::RenderTarget* target, Player& player)
+void AnimatedTiles::renderAnimatedTiles(sf::RenderTarget* target, Player& player, 
+	const sf::Vector2f& healthFillUpStationPosition, const sf::Vector2f& saveDiskPosition, 
+	const sf::Vector2f& increaseMaxHealthPosition, bool renderHealthFillUp, bool renderSaveDisk,
+	bool renderMaxLevelHealth)
 {
 	/* Updates animated tiles 
 	*  Renders animated tiles
@@ -67,19 +76,25 @@ void AnimatedTiles::renderAnimatedTiles(sf::RenderTarget* target, Player& player
 	updateTextureRectangles();
 
 	//Render "Healthfill up station"
-	m_animatedTilesSpriteSheet.setPosition(m_healthFillUpStationPosition);
-	m_animatedTilesSpriteSheet.setTextureRect(m_healthFillUpStation);
-	target->draw(m_animatedTilesSpriteSheet);
+	if (renderHealthFillUp)
+	{
+		m_animatedTilesSpriteSheet.setPosition(healthFillUpStationPosition);
+		m_animatedTilesSpriteSheet.setTextureRect(m_healthFillUpStation);
+		target->draw(m_animatedTilesSpriteSheet);
+	}
 
 	//Render "Savedisk" 
-	m_animatedTilesSpriteSheet.setPosition(m_saveDiskPosition);
-	m_animatedTilesSpriteSheet.setTextureRect(m_saveDisk);
-	target->draw(m_animatedTilesSpriteSheet);
+	if (renderSaveDisk)
+	{
+		m_animatedTilesSpriteSheet.setPosition(saveDiskPosition);
+		m_animatedTilesSpriteSheet.setTextureRect(m_saveDisk);
+		target->draw(m_animatedTilesSpriteSheet);
+	}
 
 	//Render "Increase max health" only if max health level isn't reached
-	if (MAXLEVEL1HEALTH != player.getHealth().second)
+	if (m_maxLevelHealth != player.getHealth().second && renderMaxLevelHealth)
 	{
-		m_animatedTilesSpriteSheet.setPosition(m_increaseMaxHealthPosition);
+		m_animatedTilesSpriteSheet.setPosition(increaseMaxHealthPosition);
 		m_animatedTilesSpriteSheet.setTextureRect(m_increaseMaxHealth);
 		target->draw(m_animatedTilesSpriteSheet);
 	}
